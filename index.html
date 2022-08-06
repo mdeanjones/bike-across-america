@@ -1,0 +1,41 @@
+---
+layout: default
+title: Bike Across America
+---
+
+<!-- script
+    src="https://maps.googleapis.com/maps/api/js?key=[KEY]&callback=initMap&v=weekly"
+    defer
+></script-->
+
+<div class="container">
+  <div class="d-flex justify-content-center mt-3">
+    <div id="countdown" class="d-flex text-center font-monospace"></div>
+  </div>
+</div>
+
+<script>
+    const countdown = new Countdown('2022-08-31T09:00:00-08:00', '#countdown');
+    countdown.start();
+
+    function initMap() {
+      return;
+
+      const pins = [
+        {% for checkin in site.data.checkins %}
+          { lat: {{ checkin.lat }}, lng: {{ checkin.lng }} },
+        {% endfor %}
+      ];
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom:   14,
+        center: pins[0],
+        mapTypeId: 'terrain',
+      });
+
+      const bikeLayer = new google.maps.BicyclingLayer();
+      bikeLayer.setMap(map);
+    }
+</script>
+
+<div id="map" style="height: 400px; width: 100%;"></div>
