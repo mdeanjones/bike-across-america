@@ -1,0 +1,28 @@
+#countdown {
+  background: linear-gradient(var(--bs-white), #eee, var(--bs-white));
+
+  > div {
+    margin: 0 1px;
+    padding: 10px 9px;
+    background: var(--bs-white);
+    width: 85px;
+
+    &:first-child {
+      margin-left: 0;
+      padding-left: 10px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      padding-right: 10px;
+    }
+
+    .value {
+      font-size: 1.5rem;
+    }
+
+    .unit {
+      color: #999;
+    }
+  }
+}

@@ -1,0 +1,142 @@
+@mixin sideScrollerElement($url, $height, $width) {
+  background: url($url) no-repeat;
+  height: $height;
+  width: $width;
+}
+
+#side-scroller {
+  position: fixed;
+  bottom: 0;
+  left: -400px;
+  right: -400px;
+  height: 350px;
+  overflow: visible;
+
+  .layer {
+    position: absolute;
+    width: 100%;
+
+    .stage {
+      position: relative;
+      background: #fff;
+      box-shadow: 0 -2px 15px #aaaaaa66;
+      // background: repeating-linear-gradient(45deg, #eeeeee, #eeeeee 10px, #fff 10px, #fff 20px);
+    }
+
+    .scroller {
+      position: relative;
+    }
+  }
+
+  .sky-layer {
+    top: 0;
+
+    .scroller {
+      height: 200px;
+    }
+
+    .element {
+      transform-origin: center top;
+    }
+  }
+
+  .ground-layer {
+    bottom: 0;
+
+    .element {
+      bottom: -10px;
+      transform-origin: bottom right;
+    }
+
+    &.terrain-layer {
+      .stage {
+        height: 100px;
+      }
+
+      .scroller {
+        height: 150px;
+        bottom: -150px
+      }
+
+      .scroller + .scroller {
+        bottom: 0;
+      }
+    }
+
+    &.background-layer {
+      .stage {
+        height: 40px;
+      }
+
+      .scroller {
+        height: 200px;
+      }
+    }
+
+    &.foreground-layer {
+      .stage {
+        height: 10px;
+      }
+
+      .scroller {
+        height: 100px;
+      }
+    }
+  }
+
+  .element {
+    position: absolute;
+    display: inline-block;
+    animation: linear;
+    animation-fill-mode: forwards;
+    animation-name: scroll-right-to-left;
+    right: 0;
+  }
+
+  .cactus {
+    @include sideScrollerElement('/assets/images/cactus.png', 478px, 352px);
+  }
+
+  .oak-tree {
+    @include sideScrollerElement('/assets/images/oak-tree.png', 525px, 487px);
+  }
+
+  .pine-tree {
+    @include sideScrollerElement('/assets/images/pine-tree.png', 507px, 306px);
+  }
+
+  .tall-shrub {
+    @include sideScrollerElement('/assets/images/tall-shrub.png', 307px, 264px);
+  }
+
+  .chubby-shrub {
+    @include sideScrollerElement('/assets/images/chubby-shrub.png', 190px, 407px);
+  }
+
+  .grass-patch {
+    @include sideScrollerElement('/assets/images/grass-patch.png', 265px, 325px);
+  }
+
+  .tumbleweed {
+    @include sideScrollerElement('/assets/images/tumbleweed.png', 271px, 273px);
+  }
+
+  .cloud {
+    @include sideScrollerElement('/assets/images/cloud.png', 482px, 709px);
+  }
+
+  .hills {
+    @include sideScrollerElement('/assets/images/hills.png', 339px, 822px);
+    // transform: scale(0.5);
+  }
+
+  .mountains {
+    @include sideScrollerElement('/assets/images/mountains.png', 462px, 884px);
+    // transform: scale(0.4);
+  }
+}
+
+@keyframes scroll-right-to-left {
+  0%   { right: 0; }
+  100% { right: 100%; }
+}

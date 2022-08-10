@@ -29,6 +29,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+sass:
+  style: compact # possible values: nested expanded compact compressed
+
 # Build settings
 # theme: minima
 # plugins:

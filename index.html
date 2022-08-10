@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bike Across America
+title: Biking Across America
 ---
 
 <!-- script
@@ -9,33 +9,68 @@ title: Bike Across America
 ></script-->
 
 <div class="container">
-  <div class="d-flex justify-content-center mt-3">
-    <div id="countdown" class="d-flex text-center font-monospace"></div>
+  <h1 class="display-1 my-4 text-center">Biking Across America</h1>
+  <p class="lead text-center">Follow the spectacular journey of four humans who have forgotten about motorized transport</p>
+
+  <hr />
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div>
+      <p class="lead text-center">The adventure begins in</p>
+      <div id="countdown" class="d-flex text-center font-monospace"></div>
+    </div>
+  </div>
+</div>
+
+
+<div id="side-scroller">
+  <div class="layer sky-layer background-layer">
+    <div class="scroller"></div>
+  </div>
+
+  <div class="layer ground-layer terrain-layer">
+    <div class="scroller"></div>
+    <div class="scroller"></div>
+    <div class="stage"></div>
+  </div>
+
+  <div class="layer sky-layer foreground-layer">
+    <div class="scroller"></div>
+  </div>
+
+  <div class="layer ground-layer background-layer">
+    <div class="scroller"></div>
+    <div class="stage"></div>
+  </div>
+
+  <div class="layer ground-layer foreground-layer">
+    <div class="scroller"></div>
+    <div class="stage"></div>
   </div>
 </div>
 
 <script>
-    const countdown = new Countdown('2022-08-31T09:00:00-08:00', '#countdown');
-    countdown.start();
+    new Countdown('2022-08-31T09:00:00-08:00', '#countdown');
+    new SideScroller();
 
-    function initMap() {
-      return;
-
-      const pins = [
-        {% for checkin in site.data.checkins %}
-          { lat: {{ checkin.lat }}, lng: {{ checkin.lng }} },
-        {% endfor %}
-      ];
-
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom:   14,
-        center: pins[0],
-        mapTypeId: 'terrain',
-      });
-
-      const bikeLayer = new google.maps.BicyclingLayer();
-      bikeLayer.setMap(map);
-    }
+    // function initMap() {
+    //   return;
+    //
+    //   const pins = [
+    //     {% for checkin in site.data.checkins %}
+    //       { lat: {{ checkin.lat }}, lng: {{ checkin.lng }} },
+    //     {% endfor %}
+    //   ];
+    //
+    //   const map = new google.maps.Map(document.getElementById("map"), {
+    //     zoom:   14,
+    //     center: pins[0],
+    //     mapTypeId: 'terrain',
+    //   });
+    //
+    //   const bikeLayer = new google.maps.BicyclingLayer();
+    //   bikeLayer.setMap(map);
+    // }
 </script>
 
-<div id="map" style="height: 400px; width: 100%;"></div>
+<!--div id="map" style="height: 400px; width: 100%;"></div-->
