@@ -5,9 +5,17 @@ on:
     inputs:
       latitude:
         required: true
+        description: The latitude value to be recorded
       longitude:
         required: true
-        
+        description: The longitude value to be recorded
+      accuracy:
+        required: false
+        description: The reported accuracy of the lat/lng, typically provided as meters radius
+      altitude:
+        required: false
+        description: The reported altitude of the coordinates, if the reporting tool supports
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,7 +30,7 @@ jobs:
       with:
         node-version: 16.x
     - run: | 
-        node ./scripts/location-checkin.js ${{ github.event.inputs.latitude }} ${{ github.event.inputs.longitude }}
+        node ./scripts/location-checkin.js ${{ github.event.inputs.latitude }} ${{ github.event.inputs.longitude }} ${{ github.event.inputs.accuracy }} ${{ github.event.inputs.altitude }}
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
