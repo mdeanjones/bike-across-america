@@ -11,7 +11,10 @@ if (!(lat && lng)) {
 const projectRoot  = path.normalize(path.join(__dirname, '..'));
 const checkinsPath = path.join(projectRoot, '_data', 'location-checkin.json');
 const checkins     = JSON.parse(fs.readFileSync(checkinsPath, 'utf8'));
+const newCheckin   = { lat, lng };
 
-checkins.push({ lat, lng });
+checkins.push(newCheckin);
 
 fs.writeFileSync(checkinsPath, JSON.stringify(checkins), 'utf8');
+
+console.log(`New Checkin Recorded: ${ JSON.stringify(newCheckin, null, 2) }`);
