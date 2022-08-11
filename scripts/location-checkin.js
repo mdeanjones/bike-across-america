@@ -13,10 +13,11 @@ const checkinsPath = path.join(projectRoot, '_data', 'location-checkin.json');
 const checkins     = JSON.parse(fs.readFileSync(checkinsPath, 'utf8'));
 
 const newCheckin = {
-  lat: parseFloat(lat),
-  lng: parseFloat(lng),
-  acc: accuracy ? parseFloat(accuracy) : null,
-  alt: altitude ? parseFloat(altitude) : null,
+  lat:  parseFloat(lat),
+  lng:  parseFloat(lng),
+  acc:  accuracy ? parseFloat(accuracy) : null,
+  alt:  altitude ? parseFloat(altitude) : null,
+  time: Date.now(),
 };
 
 checkins.push(newCheckin);
