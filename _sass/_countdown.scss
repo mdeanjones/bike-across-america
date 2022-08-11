@@ -1,5 +1,6 @@
 #countdown {
   background: linear-gradient(var(--bs-white), #eee, var(--bs-white));
+  border: solid 1px var(--bs-gray-dark);
 
   > div {
     margin: 0 1px;

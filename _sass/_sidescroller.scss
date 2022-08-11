@@ -11,6 +11,7 @@
   right: -400px;
   height: 350px;
   overflow: visible;
+  z-index: -1;
 
   .layer {
     position: absolute;
