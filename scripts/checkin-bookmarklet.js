@@ -1,7 +1,7 @@
 javascript: (() => {
   navigator.geolocation.getCurrentPosition(
     (pos) => {
-      const { latitude, longitude, accuracy } = pos.coords;
+      const { latitude, longitude, accuracy, altitude } = pos.coords;
       alert(`Captured { lat: ${ latitude }, lng: ${ longitude }, accuracy: ${ accuracy } }`);
 
       function findElementWithText(querySelector, searchTerm) {
@@ -14,8 +14,11 @@ javascript: (() => {
         findElementWithText('details summary', 'run workflow').click();
 
         setTimeout(() => {
-          document.querySelector('[name="inputs[latitude]"]').value = latitude;
+          document.querySelector('[name="inputs[latitude]"]').value  = latitude;
           document.querySelector('[name="inputs[longitude]"]').value = longitude;
+          document.querySelector('[name="inputs[accuracy]"]').value  = accuracy;
+          document.querySelector('[name="inputs[altitude]"]').value  = altitude;
+
           findElementWithText('button[type="submit"]', 'run workflow').click();
         }, 500);
       }
