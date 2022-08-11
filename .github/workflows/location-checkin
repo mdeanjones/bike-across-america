@@ -1,0 +1,23 @@
+name: Location Checkin
+
+on:
+  workflow_dispatch:
+    inputs:
+      latitude:
+        required: true
+      longitude:
+        required: true
+        
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Record Info
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        # cache: 'npm'
+    - run: |
+        echo 'console.log("hello world")' | node -
