@@ -14,12 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Record Info
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
         # cache: 'npm'
     - run: node ./scripts/location-checkin.js ${{ github.event.inputs.latitude }} ${{ github.event.inputs.longitude }}
+    
+    - uses: actions/checkout@v3
     - name: Checkin
     - run: |
         git config user.name github-actions
