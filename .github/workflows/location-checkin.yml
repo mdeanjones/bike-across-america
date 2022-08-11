@@ -20,3 +20,10 @@ jobs:
         node-version: 16.x
         # cache: 'npm'
     - run: node ./scripts/location-checkin.js ${{ github.event.inputs.latitude }} ${{ github.event.inputs.longitude }}
+    - name: Checkin
+    - run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "updated location data with latest coordinates"
+        git push
