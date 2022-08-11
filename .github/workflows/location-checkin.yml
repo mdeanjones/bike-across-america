@@ -19,5 +19,4 @@ jobs:
       with:
         node-version: 16.x
         # cache: 'npm'
-    - run: |
-        echo 'console.log("hello world")' | node -
+    - run: node ./scripts/location-checkin.js ${{ github.event.inputs.latitude }} ${{ github.event.inputs.longitude }}
