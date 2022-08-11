@@ -59,11 +59,7 @@ title: Biking Across America
     new SideScroller();
 
     function initMap() {
-      const pins = [
-        {% for checkin in site.data.checkins %}
-          { lat: {{ checkin.lat }}, lng: {{ checkin.lng }} },
-        {% endfor %}
-      ];
+      const pins = {{ site.data.location-checkin | jsonify }};
 
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom:   14,
