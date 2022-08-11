@@ -3,10 +3,10 @@ layout: default
 title: Biking Across America
 ---
 
-<!-- script
-    src="https://maps.googleapis.com/maps/api/js?key=[KEY]&callback=initMap&v=weekly"
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr9b8DOO_ZE0GzoVoFCjXhFFBSJdn_9DE&callback=initMap&v=weekly"
     defer
-></script-->
+></script>
 
 <div class="container block py-sm-2 my-sm-2 py-4 my-4">
   <h1 class="display-1 text-center">Biking Across America</h1>
@@ -48,30 +48,30 @@ title: Biking Across America
   </div>
 </div>
 
+<div class="container block py-sm-2 my-sm-2 py-4 my-4">
+  <div id="map" style="height: 400px; width: 100%;"></div>
+</div>
+
 <script src="assets/js/scripts.js"></script>
 
 <script>
     new Countdown('2022-08-31T09:00:00-08:00', '#countdown');
     new SideScroller();
 
-    // function initMap() {
-    //   return;
-    //
-    //   const pins = [
-    //     {% for checkin in site.data.checkins %}
-    //       { lat: {{ checkin.lat }}, lng: {{ checkin.lng }} },
-    //     {% endfor %}
-    //   ];
-    //
-    //   const map = new google.maps.Map(document.getElementById("map"), {
-    //     zoom:   14,
-    //     center: pins[0],
-    //     mapTypeId: 'terrain',
-    //   });
-    //
-    //   const bikeLayer = new google.maps.BicyclingLayer();
-    //   bikeLayer.setMap(map);
-    // }
-</script>
+    function initMap() {
+      const pins = [
+        {% for checkin in site.data.checkins %}
+          { lat: {{ checkin.lat }}, lng: {{ checkin.lng }} },
+        {% endfor %}
+      ];
 
-<!--div id="map" style="height: 400px; width: 100%;"></div-->
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom:   14,
+        center: pins[0],
+        mapTypeId: 'terrain',
+      });
+
+      const bikeLayer = new google.maps.BicyclingLayer();
+      bikeLayer.setMap(map);
+    }
+</script>
