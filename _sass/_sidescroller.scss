@@ -21,7 +21,6 @@
       position: relative;
       background: #fff;
       box-shadow: 0 -2px 15px #aaaaaa66;
-      // background: repeating-linear-gradient(45deg, #eeeeee, #eeeeee 10px, #fff 10px, #fff 20px);
     }
 
     .scroller {
@@ -128,16 +127,22 @@
 
   .hills {
     @include sideScrollerElement('/assets/images/hills.png', 339px, 822px);
-    // transform: scale(0.5);
   }
 
   .mountains {
     @include sideScrollerElement('/assets/images/mountains.png', 462px, 884px);
-    // transform: scale(0.4);
   }
+
+  //.spin {
+  //  animation: spin-counterclockwise 4s linear infinite;
+  //}
 }
 
 @keyframes scroll-right-to-left {
   0%   { right: 0; }
   100% { right: 100%; }
+}
+
+@keyframes spin-counterclockwise {
+  100% { transform: rotate(-360deg) }
 }
