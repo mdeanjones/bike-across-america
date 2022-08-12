@@ -28,7 +28,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
-maps_api_key: AIzaSyAr9b8DOO_ZE0GzoVoFCjXhFFBSJdn_9DE
+maps_api_key: testkey_testkey
 
 sass:
   style: compact # possible values: nested expanded compact compressed
