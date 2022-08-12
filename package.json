@@ -17,5 +17,8 @@
   "homepage": "https://github.com/mdeanjones/bike-across-america#readme",
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.3.16"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.49.2"
   }
 }
