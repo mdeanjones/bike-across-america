@@ -3,11 +3,6 @@ layout: default
 title: Biking Across America
 ---
 
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr9b8DOO_ZE0GzoVoFCjXhFFBSJdn_9DE&callback=initMap&v=weekly"
-    defer
-></script>
-
 <div class="container block py-sm-2 my-sm-2 py-4 my-4">
   <h1 class="display-1 text-center">Biking Across America</h1>
   <p class="lead text-center">Follow the spectacular journey of four humans who have forgotten about motorized transport</p>
@@ -52,22 +47,15 @@ title: Biking Across America
   <div id="map" style="height: 400px; width: 100%;"></div>
 </div>
 
-<script src="assets/js/scripts.js"></script>
+<script src="{{ '/assets/js/countdown.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/side-scroller.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/map.js' | relative_url }}"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{ site.maps_api_key }}&callback=initMap&v=weekly" defer></script>
 
 <script>
-    new Countdown('2022-08-31T09:00:00-08:00', '#countdown');
-    new SideScroller();
+  window.locationPins = {{ site.data.location-checkin | jsonify }};
 
-    function initMap() {
-      const pins = {{ site.data.location-checkin | jsonify }};
-
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom:   14,
-        center: pins[0],
-        mapTypeId: 'terrain',
-      });
-
-      const bikeLayer = new google.maps.BicyclingLayer();
-      bikeLayer.setMap(map);
-    }
+  new Countdown('2022-08-31T09:00:00-08:00', '#countdown');
+  new SideScroller();
 </script>
