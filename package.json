@@ -4,7 +4,12 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "concurrently 'npm:start:tsc' 'npm:start:jekyll'",
+    "start:jekyll": "JEKYLL_ENV=development bundle exec jekyll serve --livereload --trace",
+    "start:tsc": "tsc -w",
+    "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
+    "build:tsc": "tsc --outFile /dev/stdout | terser --compress --mangle --source-map --output=./_site/assets/js/pedal-powered.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,8 @@
     "typescript": "^4.7.4"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.49.2"
+    "@types/google.maps": "^3.49.2",
+    "concurrently": "^7.3.0",
+    "terser": "^5.14.2"
   }
 }

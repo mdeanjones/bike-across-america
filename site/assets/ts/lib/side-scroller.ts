@@ -1,4 +1,4 @@
-class SideScroller {
+export default class SideScroller {
   static clouds = [
     { className: 'cloud', scaleBounds: [0.05, 0.3], flippable: true, verticalJitter: 200 },
   ];
@@ -24,15 +24,22 @@ class SideScroller {
     { className: 'tumbleweed',   scaleBounds: [0.2, 0.4], flippable: true, spin: true, accelerate: true },
   ];
 
+  protected scrollerRoot: HTMLElement;
+  protected skyLayers: NodeListOf<HTMLElement>;
+  protected terrainLayers: NodeListOf<HTMLElement>;
+  protected backgroundLayers: NodeListOf<HTMLElement>;
+  protected foregroundLayers: NodeListOf<HTMLElement>;
+
   constructor() {
-    this.scrollerRoot     = document.getElementById('side-scroller');
+    this.scrollerRoot     = document.getElementById('side-scroller') as HTMLElement;
     this.skyLayers        = this.scrollerRoot.querySelectorAll('.sky-layer .scroller');
     this.terrainLayers    = this.scrollerRoot.querySelectorAll('.terrain-layer .scroller');
     this.backgroundLayers = this.scrollerRoot.querySelectorAll('.ground-layer.background-layer .scroller');
     this.foregroundLayers = this.scrollerRoot.querySelectorAll('.ground-layer.foreground-layer .scroller');
 
-    this.scrollerRoot.addEventListener('animationend', (event) => {
-      event.target.parentNode.removeChild(event.target);
+    this.scrollerRoot.addEventListener('animationend', (event: AnimationEvent) => {
+      const target = event.target as HTMLElement;
+      target.parentNode?.removeChild(target);
     });
 
     this.insertElementFromCollection(SideScroller.clouds,     this.skyLayers,        [3000, 9000],   [30000, 33000]);
@@ -41,7 +48,7 @@ class SideScroller {
     this.insertElementFromCollection(SideScroller.foreground, this.foregroundLayers, [80000, 13000], [18000, 27000]);
   }
 
-  insertElementFromCollection(collection, layerGroup, spawnRate, scrollRate) {
+  insertElementFromCollection(collection: unknown[], layerGroup: NodeListOf<HTMLElement>, spawnRate: [number, number], scrollRate: [number, number]) {
     const layerIdx       = this.randomInteger(0, layerGroup.length - 1);
     const element        = this.createRandomElement(collection);
     const nextSpawnMs    = this.randomInteger(spawnRate[0], spawnRate[1]);
@@ -59,11 +66,12 @@ class SideScroller {
     );
   }
 
-  createRandomElement(array) {
+  createRandomElement(array: unknown[]) {
+    // @ts-expect-error
     return this.createElement(this.randomElement(array));
   }
 
-  createElement({ className, scaleBounds, flippable, verticalJitter }) {
+  createElement({ className, scaleBounds, flippable, verticalJitter }: { className: string, scaleBounds: [number, number], flippable?: boolean, verticalJitter?: number }) {
     const el = document.createElement('div');
     el.classList.add('element', className);
 
@@ -86,15 +94,15 @@ class SideScroller {
     return el;
   }
 
-  randomElement(array) {
+  randomElement<T>(array: T[]): T {
     return array[this.randomInteger(0, array.length - 1)];
   }
 
-  randomInteger(min, max) {
+  randomInteger(min: number, max: number) {
     return Math.floor(this.randomNumber(Math.ceil(min), Math.floor(max) + 1));
   }
 
-  randomNumber(min, max) {
+  randomNumber(min: number, max: number) {
     return Math.random() * (max - min) + min;
   }
 }

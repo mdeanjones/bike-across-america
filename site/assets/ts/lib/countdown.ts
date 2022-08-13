@@ -1,11 +1,18 @@
-class Countdown {
-  constructor(to, outlet) {
-    this.toUnix     = new Date(to).getTime();
-    this.outlet     = document.querySelector(outlet);
-    this.days       = this.makeCounter('days');
-    this.hours      = this.makeCounter('hours');
-    this.minutes    = this.makeCounter('minutes');
-    this.seconds    = this.makeCounter('seconds');
+export default class Countdown {
+  protected toUnix: number;
+  protected outlet: HTMLElement;
+  protected days: HTMLElement;
+  protected hours: HTMLElement;
+  protected minutes: HTMLElement;
+  protected seconds: HTMLElement;
+
+  constructor(to: string, outlet: string) {
+    this.toUnix  = new Date(to).getTime();
+    this.outlet  = document.querySelector(outlet) as HTMLElement;
+    this.days    = this.makeCounter('days');
+    this.hours   = this.makeCounter('hours');
+    this.minutes = this.makeCounter('minutes');
+    this.seconds = this.makeCounter('seconds');
 
     setInterval(() => this.tick(), 1000);
     this.tick();
@@ -23,7 +30,7 @@ class Countdown {
     this.update(this.days, days.toString());
   }
 
-  makeCounter(unit) {
+  makeCounter(unit: string) {
     const wrapperEl = document.createElement('div');
     wrapperEl.classList.add(unit);
 
@@ -40,7 +47,7 @@ class Countdown {
     return valueEl;
   }
 
-  update(element, value) {
+  update(element: HTMLElement, value: string) {
     if (element.innerHTML !== value) {
       element.innerHTML = value;
     }

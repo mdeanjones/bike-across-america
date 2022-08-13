@@ -1,5 +1,20 @@
-function initMap() {
-  const mapEl   = document.getElementById("map");
+declare global {
+  interface Window {
+    readonly locationPins: {
+      lat:   number,
+      lng:   number,
+      time:  number,
+      alt:   number | null,
+      dist:  number | null,
+      speed: number | null,
+    }[];
+  }
+}
+
+export default function initMap() {
+  const mapEl = document.getElementById("map") as HTMLElement;
+
+
   const pins    = window.locationPins;
   const iconUrl = 'http://maps.google.com/mapfiles/kml/shapes/cycling.png';
 
@@ -16,8 +31,12 @@ function initMap() {
   map.fitBounds(bounds);
 
   // Cause the markers to drop in a staggered wave
-  function generateNextMarker(pins) {
+  function generateNextMarker(pins: { lat: number, lng: number }[]) {
     const pin = pins.shift();
+
+    if (!pin) {
+      return;
+    }
 
     const marker = new google.maps.Marker({
       map,
