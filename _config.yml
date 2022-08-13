@@ -35,8 +35,12 @@ sass:
 
 # Build settings
 # theme: minima
-# plugins:
+plugins:
 #   - jekyll-feed
+  - jekyll-tsc
+
+typescript:
+  command: ['./node_modules/.bin/tsc']
 
 # Exclude from processing.
 # The following items will not be processed, by default.
