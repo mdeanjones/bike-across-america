@@ -11,7 +11,7 @@ const { Client } = require("@googlemaps/google-maps-services-js");
   }
 
   const projectRoot  = path.normalize(path.join(__dirname, '..'));
-  const checkinsPath = path.join(projectRoot, '_data', 'location-checkin.json');
+  const checkinsPath = path.join(projectRoot, 'site', '_data', 'location-checkin.json');
   const checkins     = JSON.parse(fs.readFileSync(checkinsPath, 'utf8'));
 
   const newCheckin = {
