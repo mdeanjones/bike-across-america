@@ -8,6 +8,8 @@ declare global {
       dist:  number | null,
       speed: number | null,
     }[];
+
+    initMap?: typeof initMap;
   }
 }
 
