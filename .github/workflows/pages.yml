@@ -38,12 +38,11 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-        run: |
-          npm install
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v1
       - run: |
+          npm install
           echo 'maps_api_key: ${{ secrets.MAPS_JS_API_KEY }}' > _keys.yml
           npm run build:jekyll -- --baseurl ${{ steps.pages.outputs.base_path }} --config _config.yml,_keys.yml
           npm run build:tsc
