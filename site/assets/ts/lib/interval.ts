@@ -1,5 +1,5 @@
 export type IntervalOptions = {
-  callback: () => void;
+  callback: () => void | number;
   timeout:  number;
   repeat?:  number;
 }
@@ -10,7 +10,7 @@ export type IntervalOptions = {
  */
 export default class Interval {
   protected options:      Required<IntervalOptions>;
-  protected repeatCount?: number;
+  protected repeatCount:  number;
   protected lastEnqueue?: number;
   protected stoppedOn?:   number;
   protected timerId?:     number;
@@ -21,6 +21,10 @@ export default class Interval {
   }
 
   public start(immediate?: boolean) {
+    if (this.timerId) {
+      return;
+    }
+
     if (this.options.repeat < 1) {
       throw new Error();
     }
@@ -57,7 +61,7 @@ export default class Interval {
 
   protected tick() {
     this.repeatCount += 1;
-    this.options.callback();
+    const result = this.options.callback();
 
     if (this.repeatCount < this.options.repeat) {
       // Corrects for `setTimeout` not actually guaranteeing millisecond accuracy.
@@ -66,12 +70,12 @@ export default class Interval {
         ? (this.options.timeout * 2) + this.lastEnqueue - Date.now()
         : this.options.timeout;
 
-      this.queueNext(timeout);
+      this.queueNext(typeof result === 'number' ? result : timeout);
     }
   }
 
   protected queueNext(timeout: number) {
     this.lastEnqueue = Date.now();
-    this.timerId     = setTimeout(() => this.tick(), timeout);
+    this.timerId     = setTimeout(() => { this.tick() }, timeout);
   }
 }
