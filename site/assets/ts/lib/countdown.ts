@@ -1,10 +1,13 @@
+import Interval from "./interval";
+
 export default class Countdown {
-  protected toUnix: number;
-  protected outlet: HTMLElement;
-  protected days: HTMLElement;
-  protected hours: HTMLElement;
-  protected minutes: HTMLElement;
-  protected seconds: HTMLElement;
+  protected toUnix:   number;
+  protected outlet:   HTMLElement;
+  protected days:     HTMLElement;
+  protected hours:    HTMLElement;
+  protected minutes:  HTMLElement;
+  protected seconds:  HTMLElement;
+  protected interval: Interval;
 
   constructor(to: string, outlet: string) {
     this.toUnix  = new Date(to).getTime();
@@ -14,8 +17,12 @@ export default class Countdown {
     this.minutes = this.makeCounter('minutes');
     this.seconds = this.makeCounter('seconds');
 
-    setInterval(() => this.tick(), 1000);
-    this.tick();
+    this.interval = new Interval({
+      timeout:  1000,
+      callback: () => this.tick(),
+    });
+
+    this.interval.start(true);
   }
 
   tick() {
