@@ -49,12 +49,10 @@ title: Biking Across America
 
 <script src="{{ '/assets/js/requirejs.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/pedal-powered.js' | relative_url }}"></script>
+
 <script>
-  // language=liquid
-  window.locationPins = {{ site.data.location-checkin | jsonify }};
+  window.locationPins  = {{ site.data.location-checkin | jsonify }};
+  window.googleMapsKey = "{{ site.maps_api_key }}";
+
   require(['pedal-powered']);
 </script>
-
-{% if site.maps_api_key %}
-<script src="https://maps.googleapis.com/maps/api/js?key={{ site.maps_api_key }}&callback=initMap&v=weekly" defer></script>
-{% endif %}

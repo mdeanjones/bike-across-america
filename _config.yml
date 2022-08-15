@@ -17,7 +17,7 @@ disable_disk_cache: true
 exclude:
   - assets/ts/
 keep_files:
-  - assets/js/**/*
+  - assets/js/pedal-powered.js
 
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,

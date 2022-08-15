@@ -9,11 +9,21 @@ declare global {
       speed: number | null,
     }[];
 
-    initMap?: typeof initMap;
+    googleMapsKey: string;
+    initMap: typeof initMap;
   }
 }
 
-export default function initMap() {
+export default function setupMaps() {
+  window.initMap = initMap;
+
+  const script = document.createElement('script');
+  script.src   = `https://maps.googleapis.com/maps/api/js?key=${ window.googleMapsKey }&callback=initMap&v=weekly`;
+
+  document.body.append(script);
+}
+
+function initMap() {
   const mapEl = document.getElementById("map") as HTMLElement;
 
 
