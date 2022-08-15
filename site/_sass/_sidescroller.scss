@@ -21,6 +21,17 @@
       position: relative;
       background: #fff;
       box-shadow: 0 -2px 15px #aaaaaa66;
+
+      &::after {
+        content: "";
+        background: url('/assets/images/background.png') repeat;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0.2;
+      }
     }
 
     .scroller {
@@ -50,7 +61,7 @@
 
     &.terrain-layer {
       .stage {
-        height: 100px;
+        height: 80px;
       }
 
       .scroller {
@@ -87,50 +98,85 @@
   .element {
     position: absolute;
     display: inline-block;
-    animation: linear;
-    animation-fill-mode: forwards;
-    animation-name: scroll-right-to-left;
+    // animation: linear;
+    // animation-fill-mode: forwards;
+    // animation-name: scroll-right-to-left;
     right: 0;
   }
 
+  .element-reversed {
+    right: unset;
+    left: 0;
+    // animation-name: scroll-left-to-right;
+  }
+
+
+  .bird-flying-left {
+    @include sideScrollerElement('/assets/images/bird-flying-left.png', 224px, 276px);
+  }
+
+  .bird-flying-right {
+    @include sideScrollerElement('/assets/images/bird-flying-right.png', 219px, 264px);
+  }
+
   .cactus {
-    @include sideScrollerElement('/assets/images/cactus.png', 478px, 352px);
+    @include sideScrollerElement('/assets/images/cactus.png', 320px, 236px);
   }
 
-  .oak-tree {
-    @include sideScrollerElement('/assets/images/oak-tree.png', 525px, 487px);
-  }
-
-  .pine-tree {
-    @include sideScrollerElement('/assets/images/pine-tree.png', 507px, 306px);
-  }
-
-  .tall-shrub {
-    @include sideScrollerElement('/assets/images/tall-shrub.png', 307px, 264px);
+  .campfire {
+    @include sideScrollerElement('/assets/images/campfile.png', 320px, 177px);
   }
 
   .chubby-shrub {
-    @include sideScrollerElement('/assets/images/chubby-shrub.png', 190px, 407px);
+    @include sideScrollerElement('/assets/images/chubby-shrub.png', 149px, 320px);
+  }
+
+  .cloud {
+    @include sideScrollerElement('/assets/images/cloud.png', 218px, 320px);
   }
 
   .grass-patch {
-    @include sideScrollerElement('/assets/images/grass-patch.png', 265px, 325px);
+    @include sideScrollerElement('/assets/images/grass-patch.png', 261px, 320px);
+  }
+
+  .hills {
+    @include sideScrollerElement('/assets/images/hills.png', 132px, 320px);
+  }
+
+  .mountains {
+    @include sideScrollerElement('/assets/images/mountains.png', 334px, 640px);
+  }
+
+  .oak-tree {
+    @include sideScrollerElement('/assets/images/oak-tree.png', 320px, 297px);
+  }
+
+  .picnic-table {
+    @include sideScrollerElement('/assets/images/picnic-table.png', 161px, 320px);
+  }
+
+  .pine-tree {
+    @include sideScrollerElement('/assets/images/pine-tree.png', 320px, 193px);
+  }
+
+  .sign {
+    @include sideScrollerElement('/assets/images/sign.png', 320px, 131px);
+  }
+
+  .tall-shrub {
+    @include sideScrollerElement('/assets/images/tall-shrub.png', 320px, 275px);
+  }
+
+  .tent {
+    @include sideScrollerElement('/assets/images/tent.png', 248px, 320px);
+  }
+
+  .the-sun {
+    @include sideScrollerElement('/assets/images/the-sun.png', 320px, 320px);
   }
 
   .tumbleweed {
     @include sideScrollerElement('/assets/images/tumbleweed.png', 271px, 273px);
-  }
-
-  .cloud {
-    @include sideScrollerElement('/assets/images/cloud.png', 482px, 709px);
-  }
-
-  .hills {
-    @include sideScrollerElement('/assets/images/hills.png', 339px, 822px);
-  }
-
-  .mountains {
-    @include sideScrollerElement('/assets/images/mountains.png', 462px, 884px);
   }
 
   //.spin {
@@ -143,6 +189,12 @@
   100% { right: 100%; }
 }
 
+@keyframes scroll-left-to-right {
+  0%   { left: 0; }
+  100% { left: 100%; }
+}
+
 @keyframes spin-counterclockwise {
+  0%   { transform: rotate(0deg) }
   100% { transform: rotate(-360deg) }
 }

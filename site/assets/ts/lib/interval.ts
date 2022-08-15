@@ -2,6 +2,7 @@ export type IntervalOptions = {
   callback: () => void | number;
   timeout:  number;
   repeat?:  number;
+  average?: boolean;
 }
 
 /**
@@ -16,7 +17,7 @@ export default class Interval {
   protected timerId?:     number;
 
   constructor(options: IntervalOptions) {
-    this.options     = { repeat: Number.POSITIVE_INFINITY, ...options };
+    this.options     = { repeat: Number.POSITIVE_INFINITY, average: false, ...options };
     this.repeatCount = 0;
   }
 
@@ -66,7 +67,7 @@ export default class Interval {
     if (this.repeatCount < this.options.repeat) {
       // Corrects for `setTimeout` not actually guaranteeing millisecond accuracy.
       // Over time, the average timeout will trend towards what was configured.
-      const timeout = this.lastEnqueue
+      const timeout = this.lastEnqueue && this.options.average
         ? (this.options.timeout * 2) + this.lastEnqueue - Date.now()
         : this.options.timeout;
 

@@ -20,6 +20,7 @@ export default class Countdown {
     this.interval = new Interval({
       timeout:  1000,
       callback: () => this.tick(),
+      average:  true,
     });
 
     this.interval.start(true);

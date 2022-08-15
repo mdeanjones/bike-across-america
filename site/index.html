@@ -54,4 +54,7 @@ title: Biking Across America
   window.locationPins = {{ site.data.location-checkin | jsonify }};
   require(['pedal-powered']);
 </script>
+
+{% if site.maps_api_key %}
 <script src="https://maps.googleapis.com/maps/api/js?key={{ site.maps_api_key }}&callback=initMap&v=weekly" defer></script>
+{% endif %}

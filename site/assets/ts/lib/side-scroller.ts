@@ -1,12 +1,13 @@
 import Interval from "./interval";
 
 type Asset = {
-  className:       string;
-  scaleBounds:     [number, number];
-  flippable?:      boolean;
-  verticalJitter?: number;
-  spin?:           boolean;
-  accelerate?:     boolean;
+  className:        string;
+  scaleBounds:      [number, number];
+  flippable?:       boolean;
+  verticalJitter?:  number;
+  spin?:            boolean;
+  accelerate?:      boolean;
+  reversed?:        boolean;
 };
 
 type Collection = {
@@ -15,44 +16,56 @@ type Collection = {
   scrollRate: [number, number];
 }
 
-const Clouds: Collection = {
-  spawnRate:  [3000, 9000],
-  scrollRate: [30000, 33000],
+const Sky: Collection = {
+  spawnRate:  [3000,  9000],
+  scrollRate: [25000, 45000],
   assets: [
-    { className: 'cloud', scaleBounds: [0.05, 0.3], flippable: true, verticalJitter: 200 },
+    { className: 'cloud',             scaleBounds: [0.05, 0.7], flippable: true, verticalJitter: 200 },
+    { className: 'bird-flying-left',  scaleBounds: [0.05, 0.3], verticalJitter: 200, accelerate: true },
+    {
+      className:      'bird-flying-right',
+      scaleBounds:    [0.05, 0.3],
+      verticalJitter: 200,
+      accelerate:     true,
+      reversed:       true,
+    },
   ],
 };
 
 const Terrain: Collection = {
-  spawnRate:  [15000, 30000],
+  spawnRate:  [3000, 40000],
   scrollRate: [40000, 60000],
   assets: [
-    { className: 'hills',     scaleBounds: [0.2, 0.5],  flippable: true },
-    { className: 'mountains', scaleBounds: [0.3, 0.65], flippable: true },
+    { className: 'hills',     scaleBounds: [0.7, 1], flippable: true },
+    { className: 'mountains', scaleBounds: [0.4, 1], flippable: true },
   ],
 };
 
 const Background: Collection = {
-  spawnRate:  [10000, 15000],
+  spawnRate:  [5000,  10000],
   scrollRate: [25000, 35000],
   assets: [
-    { className: 'pine-tree',    scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'oak-tree',     scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'cactus',       scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'tall-shrub',   scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'chubby-shrub', scaleBounds: [0.2, 0.5], flippable: true },
+    { className: 'pine-tree',    scaleBounds: [0.3, 0.5], flippable: true },
+    { className: 'oak-tree',     scaleBounds: [0.4, 0.5], flippable: true },
+    { className: 'cactus',       scaleBounds: [0.2, 0.3], flippable: true },
+    { className: 'tall-shrub',   scaleBounds: [0.2, 0.3], flippable: true },
+    { className: 'chubby-shrub', scaleBounds: [0.4, 0.6], flippable: true },
+    { className: 'sign',         scaleBounds: [0.3, 0.5], flippable: true },
   ],
 };
 
 const Foreground: Collection = {
-  spawnRate:  [80000, 13000],
+  spawnRate:  [1000,  13000],
   scrollRate: [18000, 27000],
   assets: [
-    { className: 'cactus',       scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'tall-shrub',   scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'chubby-shrub', scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'grass-patch',  scaleBounds: [0.2, 0.5], flippable: true },
-    { className: 'tumbleweed',   scaleBounds: [0.2, 0.4], flippable: true, spin: true, accelerate: true },
+    { className: 'pine-tree',    scaleBounds: [0.4, 0.6], flippable: true },
+    { className: 'oak-tree',     scaleBounds: [0.4, 0.7], flippable: true },
+    { className: 'cactus',       scaleBounds: [0.3, 0.4], flippable: true },
+    { className: 'tall-shrub',   scaleBounds: [0.3, 0.6], flippable: true },
+    { className: 'chubby-shrub', scaleBounds: [0.4, 0.5], flippable: true },
+    { className: 'grass-patch',  scaleBounds: [0.3, 0.6], flippable: true },
+    { className: 'sign',         scaleBounds: [0.6, 0.8], flippable: true },
+    // { className: 'tumbleweed',   scaleBounds: [0.2, 0.3], flippable: true, spin: true, accelerate: true },
   ]
 };
 
@@ -73,8 +86,8 @@ export default class SideScroller {
 
     this.intervals = [
       new Interval({
-        timeout:  this.randomInteger(Clouds.spawnRate),
-        callback: () => this.insertElementFromCollection(Clouds, this.skyLayers),
+        timeout:  this.randomInteger(Sky.spawnRate),
+        callback: () => this.insertElementFromCollection(Sky, this.skyLayers),
       }),
 
       new Interval({
@@ -93,48 +106,57 @@ export default class SideScroller {
       }),
     ];
 
-    this.intervals.forEach(interval => interval.start(true));
-
-    this.scrollerRoot.addEventListener('animationend', (event: AnimationEvent) => {
-      if (event.animationName === 'scroll-right-to-left') {
-        const target = event.target as HTMLElement;
-        target.parentNode?.removeChild(target);
-      }
-    });
+    if (document.visibilityState === 'visible') {
+      this.intervals.forEach(interval => interval.start(true));
+    }
 
     document.addEventListener('visibilitychange', () => {
       this.intervals.forEach(
         interval => document.visibilityState === 'visible' ? interval.start() : interval.stop(),
       );
     });
+
+    this.scrollerRoot.addEventListener('animationend', (event: AnimationEvent) => {
+      if (event.animationName === 'scroll-right-to-left' || event.animationName === 'scroll-left-to-right') {
+        const target = event.target as HTMLElement;
+        target.parentNode?.removeChild(target);
+      }
+    });
   }
 
   insertElementFromCollection(collection: Collection, layers: NodeListOf<HTMLElement>) {
     const layerIdx    = this.randomInteger(0, layers.length - 1);
-    const element     = this.createRandomElement(collection.assets);
+    const asset       = this.randomElement(collection.assets);
+    const element     = this.createElement(asset);
     const nextSpawnMs = this.randomInteger(collection.spawnRate);
     const scrollMs    = this.randomInteger(collection.scrollRate);
 
-    element.style.animationDuration = `${ scrollMs - (layerIdx * scrollMs * 0.1) }ms`;
+    let animationDuration = scrollMs - (layerIdx * scrollMs * 0.1);
+    animationDuration = asset.accelerate ? animationDuration * this.randomNumber(0.2, 0.5) : animationDuration;
+
+    let animation = asset.reversed ? 'scroll-left-to-right' : 'scroll-right-to-left';
+
+    let animationString = `${animation} ${ animationDuration }ms linear`;
+
+    if (asset.spin) {
+      animationString += ', spin-counterclockwise 2s linear infinite';
+      element.style.transformOrigin = 'center center';
+    }
+
+    element.style.animation = animationString;
 
     layers[layerIdx].appendChild(element);
-
-    setTimeout(
-      () => this.insertElementFromCollection(collection, layers),
-      nextSpawnMs,
-    );
 
     return nextSpawnMs;
   }
 
-  createRandomElement(array: unknown[]) {
-    // @ts-expect-error
-    return this.createElement(this.randomElement(array));
-  }
-
-  createElement({ className, scaleBounds, flippable, verticalJitter }: { className: string, scaleBounds: [number, number], flippable?: boolean, verticalJitter?: number }) {
+  createElement({ className, scaleBounds, flippable, verticalJitter, reversed }: Asset) {
     const el = document.createElement('div');
     el.classList.add('element', className);
+
+    if (reversed) {
+      el.classList.add('element-reversed');
+    }
 
     if (scaleBounds?.length) {
       const scale = scaleBounds.length > 1

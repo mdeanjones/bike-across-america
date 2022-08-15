@@ -32,7 +32,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-maps_api_key: testkey_testkey
+maps_api_key: null
 
 sass:
   style: compressed # possible values: nested expanded compact compressed
