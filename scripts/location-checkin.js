@@ -15,7 +15,7 @@ const { Client } = require("@googlemaps/google-maps-services-js");
   const checkins     = JSON.parse(fs.readFileSync(checkinsPath, 'utf8'));
 
   const newCheckin = {
-    idx:   checkins.length - 1,
+    idx:   checkins.length + 1,
     lat:   parseFloat(lat),
     lng:   parseFloat(lng),
     acc:   accuracy ? parseFloat(accuracy) : null,
