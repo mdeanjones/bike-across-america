@@ -3,63 +3,54 @@ layout: default
 title: Biking Across America
 ---
 
-<div class="container block py-sm-2 my-sm-2 py-4 my-4">
-  <h1 class="display-1 text-center">Biking Across America</h1>
-  <p class="lead text-center">{{ site.description }}</p>
+<div class="vh-100">
+  <div class="container block py-sm-2 my-sm-2 py-4 my-4 text-center">
+    <h1 class="display-1">Biking Across America</h1>
+    <p class="lead">{{ site.description }}</p>
 
-  <hr />
+    <hr />
 
-  <div class="d-flex justify-content-center align-items-center">
-    <div>
-      <p class="lead text-center">The adventure begins in</p>
-      <div id="countdown" class="d-flex text-center font-monospace"></div>
+    <div class="d-flex justify-content-center align-items-center">
+      <a href="#map-header">Track Our Path</a>
+      <a href="#image-header">A Story In Photos</a>
+    </div>
+
+    <hr />
+
+    <div class="d-flex justify-content-center align-items-center">
+      <div>
+        <p class="lead text-center">The adventure begins in</p>
+        <div id="countdown" class="d-flex text-center font-monospace"></div>
+      </div>
     </div>
   </div>
 </div>
 
-<div id="side-scroller">
-  <div class="layer sky-layer background-layer">
-    <div class="scroller"></div>
-  </div>
+{% include scroller-dom.html %}
 
-  <div class="layer ground-layer terrain-layer">
-    <div class="scroller"></div>
-    <div class="scroller"></div>
-    <div class="stage"></div>
-  </div>
-
-  <div class="layer sky-layer foreground-layer">
-    <div class="scroller"></div>
-  </div>
-
-  <div class="layer ground-layer background-layer">
-    <div class="scroller"></div>
-    <div class="stage"></div>
-  </div>
-
-  <div class="layer ground-layer foreground-layer">
-    <div class="scroller"></div>
-    <div class="stage"></div>
+<div class="vh-100">
+  <div class="container block py-sm-2 my-sm-2 py-4 my-4">
+    <h2 id="map-header" class="display-4">Track Our Path</h2>
+    <div id="map" style="height: 400px; width: 100%;"></div>
   </div>
 </div>
 
-<div class="container block py-sm-2 my-sm-2 py-4 my-4">
-  <div id="map" style="height: 400px; width: 100%;"></div>
-</div>
-
-<div class="container block py-sm-2 my-sm-2 py-4 my-4">
-  <div id="image-gallery" class="gg-container">
-    <div class="gg-box">
-      {% for image in site.data.gallery-wall %}
-        <img
-            src="https://live.staticflickr.com/{{image.thumb}}"
-            loading="lazy"
-            height="{{image.txy.h}}"
-            width="{{image.txy.w}}"
-            alt="{{image.title}}"
-            data-full-res="https://live.staticflickr.com/{{image.image}}"
-        />
-      {% endfor %}
+<div class="vh-100">
+  <div class="container block py-sm-2 my-sm-2 py-4 my-4">
+    <h2 id="image-header" class="display-4">A Story In Photos</h2>
+    <div id="image-gallery" class="gg-container">
+      <div class="gg-box">
+        {% for image in site.data.gallery-wall %}
+          <img
+              src="https://live.staticflickr.com/{{image.thumb}}"
+              loading="lazy"
+              height="{{image.txy.h}}"
+              width="{{image.txy.w}}"
+              alt="{{image.title}}"
+              data-full-res="https://live.staticflickr.com/{{image.image}}"
+          />
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
