@@ -112,71 +112,71 @@
 
 
   .bird-flying-left {
-    @include sideScrollerElement('/assets/images/bird-flying-left.png', 224px, 276px);
+    @include sideScrollerElement('/assets/images/sidescroller/bird-flying-left.png', 224px, 276px);
   }
 
   .bird-flying-right {
-    @include sideScrollerElement('/assets/images/bird-flying-right.png', 219px, 264px);
+    @include sideScrollerElement('/assets/images/sidescroller/bird-flying-right.png', 219px, 264px);
   }
 
   .cactus {
-    @include sideScrollerElement('/assets/images/cactus.png', 320px, 236px);
+    @include sideScrollerElement('/assets/images/sidescroller/cactus.png', 320px, 236px);
   }
 
   .campfire {
-    @include sideScrollerElement('/assets/images/campfile.png', 320px, 177px);
+    @include sideScrollerElement('/assets/images/sidescroller/campfile.png', 320px, 177px);
   }
 
   .chubby-shrub {
-    @include sideScrollerElement('/assets/images/chubby-shrub.png', 149px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/chubby-shrub.png', 149px, 320px);
   }
 
   .cloud {
-    @include sideScrollerElement('/assets/images/cloud.png', 218px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/cloud.png', 218px, 320px);
   }
 
   .grass-patch {
-    @include sideScrollerElement('/assets/images/grass-patch.png', 261px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/grass-patch.png', 261px, 320px);
   }
 
   .hills {
-    @include sideScrollerElement('/assets/images/hills.png', 132px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/hills.png', 132px, 320px);
   }
 
   .mountains {
-    @include sideScrollerElement('/assets/images/mountains.png', 334px, 640px);
+    @include sideScrollerElement('/assets/images/sidescroller/mountains.png', 334px, 640px);
   }
 
   .oak-tree {
-    @include sideScrollerElement('/assets/images/oak-tree.png', 320px, 297px);
+    @include sideScrollerElement('/assets/images/sidescroller/oak-tree.png', 320px, 297px);
   }
 
   .picnic-table {
-    @include sideScrollerElement('/assets/images/picnic-table.png', 161px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/picnic-table.png', 161px, 320px);
   }
 
   .pine-tree {
-    @include sideScrollerElement('/assets/images/pine-tree.png', 320px, 193px);
+    @include sideScrollerElement('/assets/images/sidescroller/pine-tree.png', 320px, 193px);
   }
 
   .sign {
-    @include sideScrollerElement('/assets/images/sign.png', 320px, 131px);
+    @include sideScrollerElement('/assets/images/sidescroller/sign.png', 320px, 131px);
   }
 
   .tall-shrub {
-    @include sideScrollerElement('/assets/images/tall-shrub.png', 320px, 275px);
+    @include sideScrollerElement('/assets/images/sidescroller/tall-shrub.png', 320px, 275px);
   }
 
   .tent {
-    @include sideScrollerElement('/assets/images/tent.png', 248px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/tent.png', 248px, 320px);
   }
 
   .the-sun {
-    @include sideScrollerElement('/assets/images/the-sun.png', 320px, 320px);
+    @include sideScrollerElement('/assets/images/sidescroller/the-sun.png', 320px, 320px);
   }
 
   .tumbleweed {
-    @include sideScrollerElement('/assets/images/tumbleweed.png', 271px, 273px);
+    @include sideScrollerElement('/assets/images/sidescroller/tumbleweed.png', 271px, 273px);
   }
 
   //.spin {
