@@ -1,0 +1,27 @@
+name: Image Aggregator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Record Info
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - run: |
+          npm install
+          API_KEY=${{ secrets.FLICKR_API_KEY }} node ./scripts/image-aggregator.js
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "updated image gallery with latest Flickr uploads"
+          git push

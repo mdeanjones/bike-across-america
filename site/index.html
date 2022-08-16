@@ -47,6 +47,23 @@ title: Biking Across America
   <div id="map" style="height: 400px; width: 100%;"></div>
 </div>
 
+<div class="container block py-sm-2 my-sm-2 py-4 my-4">
+  <div id="image-gallery" class="gg-container">
+    <div class="gg-box">
+      {% for image in site.data.gallery-wall %}
+        <img
+            src="https://live.staticflickr.com/{{image.thumb}}"
+            loading="lazy"
+            height="{{image.txy.h}}"
+            width="{{image.txy.w}}"
+            alt="{{image.title}}"
+            data-full-res="https://live.staticflickr.com/{{image.image}}"
+        />
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <script src="{{ '/assets/js/requirejs.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/pedal-powered.js' | relative_url }}"></script>
 
