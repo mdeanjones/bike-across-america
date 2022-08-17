@@ -9,3 +9,15 @@
 .block {
   background-color: #ffffffaa;
 }
+
+.btn.zen, .btn.zen:active {
+  border: none;
+  z-index: 10000;
+  opacity: 0.3;
+  transition: opacity;
+  transition-duration: 0.3s;
+}
+
+.btn.zen:hover {
+  opacity: 0.8;
+}
