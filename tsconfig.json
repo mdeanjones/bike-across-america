@@ -102,6 +102,6 @@
   },
 
   "include": [
-    "./site/assets/ts/*"
+    "./site/assets/ts/**/*"
   ]
 }
