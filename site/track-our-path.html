@@ -1,0 +1,78 @@
+---
+layout: default
+title: Track Our Path - Biking Across America
+---
+
+<div class="container py-sm-2 my-sm-2 py-4 my-4">
+  <h1 id="map-header" class="display-4">Track Our Path</h1>
+
+  <div class="row my-4">
+    <div class="col-sm-4">
+      <div class="border-top border-bottom border-secondary border-3 text-secondary d-flex align-items-center">
+        <div class="display-4 me-2">0</div>
+        <div class="lead">Days on the road</div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="border-top border-bottom border-secondary border-3 text-secondary d-flex align-items-center">
+        <div class="display-4 me-2">0</div>
+        <div class="lead">Total Miles Travelled</div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="border-top border-bottom border-secondary border-3 text-secondary d-flex align-items-center">
+        <div class="display-4 me-2">0</div>
+        <div class="lead">Flat Tires</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-2"></div>
+
+  <div id="map" style="height: 400px; width: 100%;"></div>
+
+  <hr />
+
+  <div class="table-responsive-lg">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Distance (From Previous)</th>
+          <th>Distance (To Date)</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% assign totalDistance = 0 %}
+
+        {% for checkin in site.data.location-checkin %}
+          {% assign totalDistance = checkin.dist | plus: totalDistance %}
+          <tr>
+            <td>{{ checkin.idx }}</td>
+            <td>{{ checkin.time | divided_by: 1000 | date_to_rfc822 }}</td>
+            <td>{{ checkin.lat }}</td>
+            <td>{{ checkin.lng }}</td>
+            <td>{{ checkin.dist }} m</td>
+            <td>{{ totalDistance }} m</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% include script-tags.html %}
+
+<script>
+  window.locationPins  = {{ site.data.location-checkin | jsonify }};
+  window.googleMapsKey = "{{ site.maps_api_key }}";
+
+  require(['lib/map'], function ({ default: setupMap }) { setupMap(); });
+</script>

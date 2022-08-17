@@ -3,64 +3,45 @@ layout: default
 title: Biking Across America
 ---
 
-<div class="vh-100">
-  <div class="container block py-sm-2 my-sm-2 py-4 my-4 text-center">
-    <h1 class="display-1">Biking Across America</h1>
-    <p class="lead">{{ site.description }}</p>
+<div class="container py-sm-2 my-sm-2 py-4 my-4 text-center">
+  <h1 class="display-1">Biking Across America</h1>
+  <p class="lead">{{ site.description }}</p>
 
-    <hr />
+  <hr />
 
-    <div class="d-flex justify-content-center align-items-center">
-      <a href="#map-header">Track Our Path</a>
-      <a href="#image-header">A Story In Photos</a>
-    </div>
+  <div class="d-flex justify-content-center">
+    <a href="{{ '/track-our-path.html' | relative_url }}" class="btn btn-link">Track Our Path</a>
+    <a href="{{ '/media.html' | relative_url }}" class="btn btn-link">Media Gallery</a>
+  </div>
 
-    <hr />
+  <hr />
 
-    <div class="d-flex justify-content-center align-items-center">
-      <div>
-        <p class="lead text-center">The adventure begins in</p>
-        <div id="countdown" class="d-flex text-center font-monospace"></div>
-      </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div>
+      <p class="lead text-center">The adventure begins in</p>
+      <div id="countdown" class="d-flex text-center font-monospace"></div>
     </div>
   </div>
 </div>
 
 {% include scroller-dom.html %}
 
-<div class="vh-100">
-  <div class="container block py-sm-2 my-sm-2 py-4 my-4">
-    <h2 id="map-header" class="display-4">Track Our Path</h2>
-    <div id="map" style="height: 400px; width: 100%;"></div>
-  </div>
-</div>
-
-<div class="vh-100">
-  <div class="container block py-sm-2 my-sm-2 py-4 my-4">
-    <h2 id="image-header" class="display-4">A Story In Photos</h2>
-    <div id="image-gallery" class="gg-container">
-      <div class="gg-box">
-        {% for image in site.data.gallery-wall %}
-          <img
-              src="https://live.staticflickr.com/{{image.thumb}}"
-              loading="lazy"
-              height="{{image.txy.h}}"
-              width="{{image.txy.w}}"
-              alt="{{image.title}}"
-              data-full-res="https://live.staticflickr.com/{{image.image}}"
-          />
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="{{ '/assets/js/requirejs.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/pedal-powered.js' | relative_url }}"></script>
+{% include script-tags.html %}
 
 <script>
   window.locationPins  = {{ site.data.location-checkin | jsonify }};
   window.googleMapsKey = "{{ site.maps_api_key }}";
 
-  require(['pedal-powered']);
+  require(
+    ['lib/countdown', 'lib/side-scroller'],
+    function ({ default: Countdown }, { default: SideScroller}) {
+      const countdownTo = '2022-08-31T09:00:00-08:00';
+
+      if (new Date(countdownTo) > new Date()) {
+        new Countdown(countdownTo, '#countdown');
+      }
+
+      new SideScroller();
+    }
+  );
 </script>
