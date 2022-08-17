@@ -1,14 +1,15 @@
 ---
 layout: default
-title: Track Our Path - Biking Across America
+title: Track The Journey - Biking Across America
 ---
 
-<div class="d-flex justify-content-center border-bottom py-2">
-  {% include navigation-links.html %}
-</div>
+{% include navigation-links.html %}
 
 <div class="container">
-  <h1 id="map-header" class="display-4 mt-4">Track Our Path</h1>
+  <h1 id="map-header" class="display-5">Track the Journey</h1>
+
+  <p class="lead">We will be checking in often, and when we do the location will
+    appear here along with lots of other <i>oh-so-fun</i> numbers.</p>
 
   <div class="my-4">
     {% include quick-stats.html %}
@@ -16,9 +17,11 @@ title: Track Our Path - Biking Across America
 
   <div id="map" style="height: 400px; width: 100%;" class="mb-4"></div>
 
+  <div id="elevationChart" style="height: 200px;" class="mb-4"></div>
+
   <hr />
 
-  <h4>All the Numbers</h4>
+  <h4 class="border-bottom fw-light">All the Numbers</h4>
 
   <div class="table-responsive-lg">
     <table class="table table-striped">
@@ -54,12 +57,18 @@ title: Track Our Path - Biking Across America
   </div>
 </div>
 
-
 {% include script-tags.html %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script>
   window.locationPins  = {{ site.data.location-checkin | jsonify }};
   window.googleMapsKey = "{{ site.maps_api_key }}";
 
-  require(['lib/map'], function ({ default: setupMap }) { setupMap(); });
+  require(
+    ['lib/map', 'lib/elevation-chart'],
+    function ({ default: setupMap }, { default: setupChart }) {
+      setupMap();
+      setupChart();
+    },
+  );
 </script>

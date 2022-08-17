@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/google.maps": "^3.49.2",
+    "@types/google.visualization": "^0.0.68",
     "concurrently": "^7.3.0",
     "terser": "^5.14.2"
   }

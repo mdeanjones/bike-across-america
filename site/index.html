@@ -3,24 +3,18 @@ layout: default
 title:  Biking Across America
 ---
 
+{% include navigation-links.html %}
+
 <button
     type="button"
-    class="btn zen position-fixed end-0"
+    class="btn zen position-fixed end-0 top-0 mt-1"
     title="Toggle Zen Mode"
     onclick="document.querySelectorAll('.fade').forEach(item => item.classList.toggle('show'))"
 >Zen</button>
 
-<div class="container py-lg-2 text-center fade show">
+<div class="container text-center fade show">
   <h1 class="display-1">Biking Across America</h1>
   <p class="lead">{{ site.description }}</p>
-
-  <hr />
-
-  <div class="d-flex justify-content-center">
-    {% include navigation-links.html %}
-  </div>
-
-  <hr />
 
   {% assign dayOfYear = "today" | date: "%j" %}
   {% assign startDay  = site.nominal_start_date | date: "%j" %}

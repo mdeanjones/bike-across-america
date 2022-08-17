@@ -3,22 +3,23 @@ layout: default
 title: Media - Biking Across America
 ---
 
-<div class="vh-100">
-  <div class="container block py-sm-2 my-sm-2 py-4 my-4">
-    <h2 id="image-header" class="display-4">A Story In Photos</h2>
-    <div id="image-gallery" class="gg-container">
-      <div class="gg-box">
-        {% for image in site.data.gallery-wall %}
-        <img
-            src="https://live.staticflickr.com/{{image.thumb}}"
-            loading="lazy"
-            height="{{image.txy.h}}"
-            width="{{image.txy.w}}"
-            alt="{{image.title}}"
-            data-full-res="https://live.staticflickr.com/{{image.image}}"
-        />
-        {% endfor %}
-      </div>
+<div class="container block py-sm-2 my-sm-2 py-4 my-4">
+  <h2 id="image-header" class="display-4">A Story In Photos</h2>
+  <div id="image-gallery" class="gg-container">
+    <div class="gg-box">
+      {% for image in site.data.gallery-wall %}
+      <img
+          src="https://live.staticflickr.com/{{image.thumb}}"
+          loading="lazy"
+          height="{{image.txy.h}}"
+          width="{{image.txy.w}}"
+          alt="{{image.title}}"
+          class="fade rounded"
+          data-full-res="https://live.staticflickr.com/{{image.image}}"
+          onload="this.classList.add('show')"
+      />
+      {% endfor %}
     </div>
   </div>
 </div>
+

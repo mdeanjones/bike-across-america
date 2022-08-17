@@ -1,9 +1,41 @@
-{% assign mapUrl   = '/track-our-path.html' | relative_url %}
-{% assign mediaUrl = '/media.html' | relative_url %}
+{% assign homeUrl  = '/'      | relative_url %}
+{% assign trackUrl = '/track' | relative_url %}
+{% assign mediaUrl = '/media' | relative_url %}
 
-{% if page.url != '/' %}
-  <a href="/" class="btn btn-link">Home</a>
+{% assign homeClass  = nil %}
+{% assign trackClass = nil %}
+{% assign mediaClass = nil %}
+
+{% if page.url == '/' %}
+  {% assign homeClass = ' active' %}
 {% endif %}
 
-<a href="{{ mapUrl }}" class="btn btn-link{% if page.url == mapUrl %} active{% endif %}">Track Our Path</a>
-<a href="{{ mediaUrl }}" class="btn btn-link{% if page.url == mediaUrl %} active{% endif %}">Media Gallery</a>
+{% if page.url contains trackUrl %}
+  {% assign trackClass = ' active' %}
+{% endif %}
+
+{% if page.url contains mediaUrl %}
+  {% assign mediaClass = ' active' %}
+{% endif %}
+
+<nav class="pt-1 mb-2">
+  <ul class="nav nav-tabs justify-content-center">
+    <li class="nav-item">
+      <a href="{{ homeUrl }}" class="nav-link {{ homeClass }}" {% if homeClass %} aria-active="page"{% endif %}>
+        Home
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="{{ trackUrl }}" class="nav-link {{ trackClass }}" {% if trackClass %} aria-active="page"{% endif %}>
+        Track the Journey
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="{{ mediaUrl }}" class="nav-link {{ mediaClass }}" {% if mediaClass %} aria-active="page"{% endif %}>
+        Media Gallery
+      </a>
+    </li>
+  </ul>
+</nav>
