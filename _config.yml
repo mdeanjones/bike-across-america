@@ -13,6 +13,8 @@ description: >-
 baseurl: ""
 url: "https://bike-across-america.com"
 maps_api_key: null
+meters_to_miles: 0.000621371
+nominal_start_date: "2022-08-31T09:00:00-08:00"
 
 sass:
   style: compressed

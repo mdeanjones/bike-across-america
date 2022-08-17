@@ -1,0 +1,42 @@
+{% assign dayOfYear     = "today" | date: "%j" %}
+{% assign startDay      = site.nominal_start_date | date: "%j" %}
+{% assign totalDistance = 0 %}
+
+{% for checkin in site.data.location-checkin %}
+  {% assign totalDistance = checkin.dist | plus: totalDistance %}
+{% endfor %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100 text-white bg-dark">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h5 class="display-5 mb-0 me-3">{{ dayOfYear | minus: startDay }}</h5>
+          <p class="lead mb-0">Days on the road</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100 text-white bg-dark">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h5 class="display-5 mb-0 me-3">{{ totalDistance | times: site.meters_to_miles | round: 0 }}</h5>
+          <p class="lead mb-0">Miles travelled</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100 text-white bg-dark">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h5 class="display-5 mb-0 me-3">0</h5>
+          <p class="lead mb-0">Flat tires</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

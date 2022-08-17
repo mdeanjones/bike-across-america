@@ -1,0 +1,9 @@
+{% assign mapUrl   = '/track-our-path.html' | relative_url %}
+{% assign mediaUrl = '/media.html' | relative_url %}
+
+{% if page.url != '/' %}
+  <a href="/" class="btn btn-link">Home</a>
+{% endif %}
+
+<a href="{{ mapUrl }}" class="btn btn-link{% if page.url == mapUrl %} active{% endif %}">Track Our Path</a>
+<a href="{{ mediaUrl }}" class="btn btn-link{% if page.url == mediaUrl %} active{% endif %}">Media Gallery</a>

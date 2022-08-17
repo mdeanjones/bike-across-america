@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Biking Across America
+title:  Biking Across America
 ---
 
 <div class="container py-sm-2 my-sm-2 py-4 my-4 text-center">
@@ -10,18 +10,24 @@ title: Biking Across America
   <hr />
 
   <div class="d-flex justify-content-center">
-    <a href="{{ '/track-our-path.html' | relative_url }}" class="btn btn-link">Track Our Path</a>
-    <a href="{{ '/media.html' | relative_url }}" class="btn btn-link">Media Gallery</a>
+    {% include navigation-links.html %}
   </div>
 
   <hr />
 
-  <div class="d-flex justify-content-center align-items-center">
-    <div>
-      <p class="lead text-center">The adventure begins in</p>
-      <div id="countdown" class="d-flex text-center font-monospace"></div>
+  {% assign dayOfYear = "today" | date: "%j" %}
+  {% assign startDay  = site.nominal_start_date | date: "%j" %}
+
+  {% if dayOfYear < startDay %}
+    <div class="d-flex justify-content-center align-items-center">
+      <div>
+        <p class="lead text-center">The adventure begins in</p>
+        <div id="countdown" class="d-flex text-center font-monospace"></div>
+      </div>
     </div>
-  </div>
+  {% else %}
+    {% include quick-stats.html %}
+  {% endif %}
 </div>
 
 {% include scroller-dom.html %}
@@ -35,11 +41,9 @@ title: Biking Across America
   require(
     ['lib/countdown', 'lib/side-scroller'],
     function ({ default: Countdown }, { default: SideScroller}) {
-      const countdownTo = '2022-08-31T09:00:00-08:00';
-
-      if (new Date(countdownTo) > new Date()) {
-        new Countdown(countdownTo, '#countdown');
-      }
+      {% if dayOfYear < startDay %}
+        new Countdown('{{ site.nominal_start_date }}', '#countdown');
+      {% endif %}
 
       new SideScroller();
     }

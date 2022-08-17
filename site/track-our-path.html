@@ -3,37 +3,22 @@ layout: default
 title: Track Our Path - Biking Across America
 ---
 
-<div class="container py-sm-2 my-sm-2 py-4 my-4">
-  <h1 id="map-header" class="display-4">Track Our Path</h1>
+<div class="d-flex justify-content-center border-bottom py-2">
+  {% include navigation-links.html %}
+</div>
 
-  <div class="row my-4">
-    <div class="col-sm-4">
-      <div class="border-top border-bottom border-secondary border-3 text-secondary d-flex align-items-center">
-        <div class="display-4 me-2">0</div>
-        <div class="lead">Days on the road</div>
-      </div>
-    </div>
+<div class="container">
+  <h1 id="map-header" class="display-4 mt-4">Track Our Path</h1>
 
-    <div class="col-sm-4">
-      <div class="border-top border-bottom border-secondary border-3 text-secondary d-flex align-items-center">
-        <div class="display-4 me-2">0</div>
-        <div class="lead">Total Miles Travelled</div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="border-top border-bottom border-secondary border-3 text-secondary d-flex align-items-center">
-        <div class="display-4 me-2">0</div>
-        <div class="lead">Flat Tires</div>
-      </div>
-    </div>
+  <div class="my-4">
+    {% include quick-stats.html %}
   </div>
 
-  <div class="py-2"></div>
-
-  <div id="map" style="height: 400px; width: 100%;"></div>
+  <div id="map" style="height: 400px; width: 100%;" class="mb-4"></div>
 
   <hr />
+
+  <h4>All the Numbers</h4>
 
   <div class="table-responsive-lg">
     <table class="table table-striped">
@@ -43,6 +28,7 @@ title: Track Our Path - Biking Across America
           <th>Date</th>
           <th>Latitude</th>
           <th>Longitude</th>
+          <th>Altitude (MSL)</th>
           <th>Distance (From Previous)</th>
           <th>Distance (To Date)</th>
         </tr>
@@ -55,10 +41,11 @@ title: Track Our Path - Biking Across America
           {% assign totalDistance = checkin.dist | plus: totalDistance %}
           <tr>
             <td>{{ checkin.idx }}</td>
-            <td>{{ checkin.time | divided_by: 1000 | date_to_rfc822 }}</td>
-            <td>{{ checkin.lat }}</td>
-            <td>{{ checkin.lng }}</td>
-            <td>{{ checkin.dist }} m</td>
+            <td>{{ checkin.time | divided_by: 1000 | date_to_string: "ordinal", "US" }}</td>
+            <td>{{ checkin.lat | round: 5 }}</td>
+            <td>{{ checkin.lng | round: 5 }}</td>
+            <td>{{ checkin.alt | round }}</td>
+            <td>{{ checkin.dist | default: 0 }} m</td>
             <td>{{ totalDistance }} m</td>
           </tr>
         {% endfor %}
