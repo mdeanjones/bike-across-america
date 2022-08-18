@@ -69,9 +69,6 @@
   text-align: center;
   line-height: 35px;
   cursor: pointer;
-  -moz-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   font-size: 20px;
   box-sizing: border-box;
@@ -129,5 +126,31 @@
 @media (max-width: 450px) {
   .gg-box {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+}
+
+.lightbox-overlay {
+  position: absolute;
+  z-index: 100000000000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .btn {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+  }
+
+  .lightbox {
+    text-align: center;
+
+    img {
+      border: solid 4px #fff;
+      height: unset;
+      max-height: 80vh;
+      max-width: 100%;
+      transition: all 0.5s;
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+    }
   }
 }
