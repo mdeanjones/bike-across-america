@@ -8,6 +8,7 @@ export default class Lightbox {
   public readonly contentBox:   HTMLElement;
   public readonly loadingIcon:  HTMLElement;
   public readonly fullResImage: HTMLImageElement;
+  public readonly titleBlock:   HTMLElement;
 
   protected currentThumb?: HTMLImageElement;
 
@@ -22,6 +23,7 @@ export default class Lightbox {
     this.contentBox   = elements.contentBox;
     this.loadingIcon  = elements.loadingIcon;
     this.fullResImage = elements.fullResImage;
+    this.titleBlock   = elements.titleBlock;
     this.thumbnails   = [...document.querySelectorAll(`${ container } img`)] as HTMLImageElement[];
 
     this.prevButton.addEventListener('click', () => this.prevImage());
@@ -119,12 +121,14 @@ export default class Lightbox {
     this.loadingIcon.style.display = 'block';
 
     if (this.fullResImage.src) {
-      await this.toggleOpacity(this.fullResImage, 'down');
+      await this.toggleOpacity(this.fullResImage.parentElement!, 'down');
     }
 
     const onLoadEvent = async () => {
       this.loadingIcon.style.display = 'none';
-      await this.toggleOpacity(this.fullResImage, 'up');
+      this.titleBlock.innerText      = thumbnail.alt ?? '';
+
+      await this.toggleOpacity(this.fullResImage.parentElement!, 'up');
       this.fullResImage.removeEventListener('load', onLoadEvent);
     };
 
@@ -171,7 +175,10 @@ export default class Lightbox {
           </div>
         </div>
 
-        <img class="fade" />
+        <div class="fade">
+          <img />
+          <p class="text-light mb-0 mt-2"></p>
+        </div>
       </div>
     `;
 
@@ -186,6 +193,7 @@ export default class Lightbox {
       contentBox:   container.querySelector('.lightbox')       as HTMLElement,
       loadingIcon:  container.querySelector('.load-indicator') as HTMLElement,
       fullResImage: container.querySelector('img')             as HTMLImageElement,
+      titleBlock:   container.querySelector('p')               as HTMLElement,
     };
   }
 }
