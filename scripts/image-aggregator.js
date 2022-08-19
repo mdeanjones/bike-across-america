@@ -13,7 +13,7 @@ function getFlickrUrl(apiKey, userId, photoSetId) {
     ? `method=flickr.photosets.getPhotos&photoset_id=${photoSetId}`
     : 'method=flickr.people.getPublicPhotos';
 
-  return url + `&api_key=${apiKey}&user_id=${userId}&extras=url_o,url_n,date_upload,geo,tags&format=json&nojsoncallback=1`;
+  return url + `&api_key=${apiKey}&user_id=${userId}&extras=url_o,url_n,date_upload,geo&format=json&nojsoncallback=1`;
 }
 
 function getImageSubset({ ownername, photo }, tailId) {
@@ -30,7 +30,7 @@ function getImageSubset({ ownername, photo }, tailId) {
     results.push({
       id: item.id,
       owner: ownername,
-      tags: item.tags,
+      title: item.title,
       lat: item.latitude,
       lng: item.longitude,
       date: item.dateupload,
@@ -73,6 +73,7 @@ function consistentSort(imageArray) {
 
   const photoSources = [
     { userId: '196280425@N04', photoSetId: '72177720301304392' }, // Mike
+    { userId: '196280101@N05', photoSetId: '72177720301383100' }, // Julie
   ];
 
   let updatedGallery = currentImages;

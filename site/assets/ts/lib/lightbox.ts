@@ -103,7 +103,6 @@ export default class Lightbox {
 
     this.backdrop.style.display    = 'none';
     this.container.style.display   = 'none';
-    this.loadingIcon.style.display = 'block';
     this.fullResImage.src          = '';
 
     document.body.classList.remove('modal-open');
@@ -114,12 +113,23 @@ export default class Lightbox {
   protected async loadImage(thumbnail: HTMLImageElement) {
     await this.openLightbox();
 
-    const fullResSource = thumbnail.getAttribute('data-full-res');
-
-    this.currentThumb        = thumbnail;
-    this.fullResImage.src    = fullResSource ?? '';
+    this.currentThumb = thumbnail;
     this.prevButton.disabled = !this.hasPrev;
     this.nextButton.disabled = !this.hasNext;
+    this.loadingIcon.style.display = 'block';
+
+    if (this.fullResImage.src) {
+      await this.toggleOpacity(this.fullResImage, 'down');
+    }
+
+    const onLoadEvent = async () => {
+      this.loadingIcon.style.display = 'none';
+      await this.toggleOpacity(this.fullResImage, 'up');
+      this.fullResImage.removeEventListener('load', onLoadEvent);
+    };
+
+    this.fullResImage.addEventListener('load', onLoadEvent);
+    this.fullResImage.src = thumbnail.getAttribute('data-full-res') ?? '';
   }
 
   protected async prevImage() {
@@ -155,13 +165,13 @@ export default class Lightbox {
       </div>
 
       <div class="lightbox">
-        <div class="load-indicator position-absolute start-50 translate-middle-x py-2" style="display: none">
+        <div class="load-indicator position-absolute start-50 translate-middle-x py-2 mt-4" style="display: none">
           <div class="spinner-border text-light" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
 
-        <img />
+        <img class="fade" />
       </div>
     `;
 
