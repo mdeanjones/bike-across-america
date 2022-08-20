@@ -1,10 +1,12 @@
 {% assign homeUrl  = '/'      | relative_url %}
 {% assign trackUrl = '/track' | relative_url %}
 {% assign mediaUrl = '/media' | relative_url %}
+{% assign blogUrl  = '/blog'  | relative_url %}
 
 {% assign homeClass  = nil %}
 {% assign trackClass = nil %}
 {% assign mediaClass = nil %}
+{% assign blogClass  = nil %}
 
 {% if page.url == '/' %}
   {% assign homeClass = ' active' %}
@@ -16,6 +18,10 @@
 
 {% if page.url contains mediaUrl %}
   {% assign mediaClass = ' active' %}
+{% endif %}
+
+{% if page.url contains blogUrl %}
+  {% assign blogClass = ' active' %}
 {% endif %}
 
 <nav class="pt-1 mb-2">
@@ -35,6 +41,12 @@
     <li class="nav-item">
       <a href="{{ mediaUrl }}" class="nav-link {{ mediaClass }}" {% if mediaClass %} aria-active="page"{% endif %}>
         Media<span class="d-none d-md-inline"> Gallery</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="{{ blogUrl }}" class="nav-link {{ blogClass }}" {% if blogClass %} aria-active="page"{% endif %}>
+        Blog
       </a>
     </li>
   </ul>

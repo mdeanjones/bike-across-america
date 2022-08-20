@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% include navigation-links.html %}
+
+<div class="container">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.date | date_to_string: "ordinal", "US" }} - {{ page.author }}</p>
+
+  <div class="clearfix">
+      {% if page.image %}
+        <img src="{{ page.image }}" class="col-12 col-md-6 float-end mb-3 ms-3 img-thumbnail" alt="{{ page.imageAlt }}" />
+      {% endif %}
+
+      {{ content }}
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="d-grid col-5 col-md-4 col-lg-3">
+      {% if page.previous %}
+        <a class="btn btn-outline-dark btn-block text-start" href="{{ page.previous.url }}">
+          Previous &laquo;
+          <hr class="my-1" />
+          <span class="text-nowrap">{{ page.previous.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="d-grid col-5 offset-2 col-md-4 offset-md-4 col-lg-3 offset-lg-6">
+      {% if page.next %}
+        <a class="btn btn-outline-dark btn-block text-end" href="{{ page.next.url }}">
+          Next &raquo;
+          <hr class="my-1" />
+          <span class="text-nowrap">{{ page.next.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

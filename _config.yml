@@ -10,6 +10,40 @@ email: no-reply@bike-across-america.com
 description: >-
   Follow the spectacular journey of four humans who have forgotten about motorized transport
 
+permalink: 'pretty'
+
+defaults:
+  -
+    scope:
+      path: "blog"
+      type: posts
+    values:
+      layout: post
+  -
+    scope:
+      path: "blog/jordan"
+      type: posts
+    values:
+      author: Jordan Vest
+  -
+    scope:
+      path: "blog/julie"
+      type: posts
+    values:
+      author: Julie Kauffman
+  -
+    scope:
+      path: "blog/kelly"
+      type: posts
+    values:
+      author: Kelly Johnson
+  -
+    scope:
+      path: "blog/mike"
+      type: posts
+    values:
+      author: Mike Jones
+
 baseurl: ""
 url: "https://bike-across-america.com"
 maps_api_key: null
@@ -20,7 +54,5 @@ sass:
   style: compressed
   sourcemap: always
 
-# Build settings
-# theme: minima
-# plugins:
-#   - jekyll-feed
+plugins:
+  - jekyll-feed
