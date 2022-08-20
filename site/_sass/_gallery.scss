@@ -63,6 +63,11 @@
   }
 }
 
+.powered-by {
+  background: url('/assets/images/flickr-logo.png') no-repeat center right;
+  background-size: 80px;
+}
+
 .lightbox-overlay {
   position: fixed;
   z-index: 100000000000;
