@@ -125,6 +125,7 @@ async function loadNewImages(gallery, apiKey, userId, photoSetId) {
   const photoSources = [
     { userId: '196280425@N04', photoSetId: '72177720301304392' }, // Mike
     { userId: '196280101@N05', photoSetId: '72177720301383100' }, // Julie
+    { userId: '196326181@N04', photoSetId: '72177720301436252' }, // Kelly
   ];
 
   /** @type {Gallery} */
