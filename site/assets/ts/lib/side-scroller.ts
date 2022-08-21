@@ -35,7 +35,7 @@ export default class SideScroller {
     });
 
     this.initializeAnimatedLayer('staged', 80, {
-      spawnRate:  [8000,  10000],
+      spawnRate:  [10000, 15000],
       scrollRate: [60000, 80000],
       assets: [
         { className: 'mountains', scaleBounds: [0.4, 1] },
@@ -57,7 +57,8 @@ export default class SideScroller {
       spawnRate:  [6000,  10000],
       scrollRate: [40000, 60000],
       assets: [
-        { className: 'hills',     scaleBounds: [0.7, 1] },
+        { className: 'hills',     scaleBounds: [0.7, 1.5] },
+        { className: 'hills',     scaleBounds: [0.7, 1.5] },
         { className: 'pine-tree', scaleBounds: [0.3, 0.5] },
         { className: 'oak-tree',  scaleBounds: [0.4, 0.6] },
       ],
@@ -84,7 +85,7 @@ export default class SideScroller {
         { className: 'tall-shrub',   scaleBounds: [0.15, 0.3] },
         { className: 'chubby-shrub', scaleBounds: [0.4, 0.5] },
         { className: 'grass-patch',  scaleBounds: [0.25, 0.35] },
-        { className: 'grass-patch',  scaleBounds: [0.25, 0.35] },
+        { className: 'grass-patch',  scaleBounds: [0.25, 0.35] }
       ],
     });
 
@@ -162,6 +163,10 @@ export default class SideScroller {
 
     if (scroller) {
       scroller.innerHTML = `
+        <div class="element the-daytime-firmament">
+          <div class="the-sun"></div>
+        </div>
+
         <div class="element bike-box">
           <div class="packing-materials">
             <div class="bicycle"></div>

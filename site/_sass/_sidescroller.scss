@@ -69,8 +69,24 @@
   .sign              { @include sideScrollerElement('sign.png', 320px, 131px); }
   .tall-shrub        { @include sideScrollerElement('tall-shrub.png', 320px, 275px); }
   .tent              { @include sideScrollerElement('tent.png', 248px, 320px); }
-  .the-sun           { @include sideScrollerElement('the-sun.png', 320px, 320px); }
   .tumbleweed        { @include sideScrollerElement('tumbleweed.png', 271px, 273px); }
+
+  .the-daytime-firmament {
+    z-index: -10000;
+    height: 320px;
+    width: 320px;
+    transform: scale(0.3);
+    transform-origin: top center;
+    left: 45%;
+    bottom: unset !important;
+    top: -250px;
+
+    .the-sun {
+      @include sideScrollerElement('the-sun.png', 320px, 320px);
+      animation: spin-counterclockwise 60s infinite linear;
+      opacity: 0.9;
+    }
+  }
 
   .bike-box {
     left: 50%;
@@ -106,6 +122,11 @@
 @keyframes scroll-left-to-right {
   0%   { left: 0; }
   100% { left: 100%; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes spin-counterclockwise {
