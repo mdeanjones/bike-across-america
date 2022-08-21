@@ -1,5 +1,6 @@
 @mixin sideScrollerElement($url, $height, $width) {
-  background: url($url) no-repeat;
+  background: url('/assets/images/sidescroller/' + $url) no-repeat;
+  background-size: contain;
   height: $height;
   width: $width;
 }
@@ -14,11 +15,18 @@
   z-index: -1;
 
   .layer {
-    position: absolute;
-    width: 100%;
+    .element {
+      position: absolute;
+      display: inline-block;
+      right: 0;
+    }
+
+    .element-reversed {
+      right: unset;
+      left: 0;
+    }
 
     .stage {
-      position: relative;
       background: #fff;
       box-shadow: 0 -2px 15px #aaaaaa66;
 
@@ -34,154 +42,60 @@
       }
     }
 
-    .scroller {
-      position: relative;
-    }
-  }
-
-  .sky-layer {
-    top: 0;
-
-    .scroller {
-      height: 200px;
+    &.air-layer .scroller .element {
+      transform-origin: center center;
     }
 
-    .element {
-      transform-origin: center top;
-    }
-  }
-
-  .ground-layer {
-    bottom: 0;
-
-    .element {
-      bottom: -10px;
-      transform-origin: bottom right;
-    }
-
-    &.terrain-layer {
-      .stage {
-        height: 80px;
-      }
-
-      .scroller {
-        height: 150px;
-        bottom: -150px
-      }
-
-      .scroller + .scroller {
+    &.earth-layer .scroller .element {
+        transform-origin: bottom right;
         bottom: 0;
-      }
-    }
-
-    &.background-layer {
-      .stage {
-        height: 40px;
-      }
-
-      .scroller {
-        height: 200px;
-      }
-    }
-
-    &.foreground-layer {
-      .stage {
-        height: 10px;
-      }
-
-      .scroller {
-        height: 100px;
-      }
     }
   }
 
-  .element {
-    position: absolute;
-    display: inline-block;
-    // animation: linear;
-    // animation-fill-mode: forwards;
-    // animation-name: scroll-right-to-left;
-    right: 0;
+
+
+  .bird-flying-left  { @include sideScrollerElement('bird-flying-left.png', 224px, 276px); }
+  .bird-flying-right { @include sideScrollerElement('bird-flying-right.png', 219px, 264px); }
+  .cactus            { @include sideScrollerElement('cactus.png', 320px, 236px); }
+  .campfire          { @include sideScrollerElement('campfile.png', 320px, 177px); }
+  .chubby-shrub      { @include sideScrollerElement('chubby-shrub.png', 149px, 320px); }
+  .cloud             { @include sideScrollerElement('cloud.png', 218px, 320px); }
+  .grass-patch       { @include sideScrollerElement('grass-patch.png', 261px, 320px); }
+  .hills             { @include sideScrollerElement('hills.png', 132px, 320px); }
+  .mountains         { @include sideScrollerElement('mountains.png', 334px, 640px); }
+  .oak-tree          { @include sideScrollerElement('oak-tree.png', 320px, 297px); }
+  .picnic-table      { @include sideScrollerElement('picnic-table.png', 161px, 320px); }
+  .pine-tree         { @include sideScrollerElement('pine-tree.png', 320px, 193px); }
+  .sign              { @include sideScrollerElement('sign.png', 320px, 131px); }
+  .tall-shrub        { @include sideScrollerElement('tall-shrub.png', 320px, 275px); }
+  .tent              { @include sideScrollerElement('tent.png', 248px, 320px); }
+  .the-sun           { @include sideScrollerElement('the-sun.png', 320px, 320px); }
+  .tumbleweed        { @include sideScrollerElement('tumbleweed.png', 271px, 273px); }
+
+  .bike-box {
+    left: 50%;
+    height: 161px;
+    width: 320px;
+    transform: translateX(-65%) scale(0.7);
+    transform-origin: center bottom;
+
+    .packing-materials {
+      animation-name: tilt;
+      animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+
+    .bicycle {
+      @include sideScrollerElement('bicycle.png', 161px, 320px);
+      animation-name: bounce;
+      animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+      animation-duration: 0.2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
   }
-
-  .element-reversed {
-    right: unset;
-    left: 0;
-    // animation-name: scroll-left-to-right;
-  }
-
-
-  .bird-flying-left {
-    @include sideScrollerElement('/assets/images/sidescroller/bird-flying-left.png', 224px, 276px);
-  }
-
-  .bird-flying-right {
-    @include sideScrollerElement('/assets/images/sidescroller/bird-flying-right.png', 219px, 264px);
-  }
-
-  .cactus {
-    @include sideScrollerElement('/assets/images/sidescroller/cactus.png', 320px, 236px);
-  }
-
-  .campfire {
-    @include sideScrollerElement('/assets/images/sidescroller/campfile.png', 320px, 177px);
-  }
-
-  .chubby-shrub {
-    @include sideScrollerElement('/assets/images/sidescroller/chubby-shrub.png', 149px, 320px);
-  }
-
-  .cloud {
-    @include sideScrollerElement('/assets/images/sidescroller/cloud.png', 218px, 320px);
-  }
-
-  .grass-patch {
-    @include sideScrollerElement('/assets/images/sidescroller/grass-patch.png', 261px, 320px);
-  }
-
-  .hills {
-    @include sideScrollerElement('/assets/images/sidescroller/hills.png', 132px, 320px);
-  }
-
-  .mountains {
-    @include sideScrollerElement('/assets/images/sidescroller/mountains.png', 334px, 640px);
-  }
-
-  .oak-tree {
-    @include sideScrollerElement('/assets/images/sidescroller/oak-tree.png', 320px, 297px);
-  }
-
-  .picnic-table {
-    @include sideScrollerElement('/assets/images/sidescroller/picnic-table.png', 161px, 320px);
-  }
-
-  .pine-tree {
-    @include sideScrollerElement('/assets/images/sidescroller/pine-tree.png', 320px, 193px);
-  }
-
-  .sign {
-    @include sideScrollerElement('/assets/images/sidescroller/sign.png', 320px, 131px);
-  }
-
-  .tall-shrub {
-    @include sideScrollerElement('/assets/images/sidescroller/tall-shrub.png', 320px, 275px);
-  }
-
-  .tent {
-    @include sideScrollerElement('/assets/images/sidescroller/tent.png', 248px, 320px);
-  }
-
-  .the-sun {
-    @include sideScrollerElement('/assets/images/sidescroller/the-sun.png', 320px, 320px);
-  }
-
-  .tumbleweed {
-    @include sideScrollerElement('/assets/images/sidescroller/tumbleweed.png', 271px, 273px);
-  }
-
-  //.spin {
-  //  animation: spin-counterclockwise 4s linear infinite;
-  //}
 }
 
 @keyframes scroll-right-to-left {
@@ -197,4 +111,17 @@
 @keyframes spin-counterclockwise {
   0%   { transform: rotate(0deg) }
   100% { transform: rotate(-360deg) }
+}
+
+@keyframes bounce {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, -10px, 0); }
+}
+
+@keyframes tilt {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-2deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
 }
