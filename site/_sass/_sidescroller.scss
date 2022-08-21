@@ -24,11 +24,13 @@
       display: inline-block;
       right: 0;
       filter: drop-shadow(0px 2px 5px #ccc);
+      will-change: right;
     }
 
     .element-reversed {
       right: unset;
       left: 0;
+      will-change: left;
     }
 
     .stage {
@@ -216,6 +218,11 @@
 @keyframes scroll-left-to-right {
   0%   { left: 0; }
   100% { left: 100%; }
+}
+
+@keyframes drop-out {
+  0%   { bottom: 0 !important; }
+  100% { bottom: 500px !important; }
 }
 
 @keyframes spin {
