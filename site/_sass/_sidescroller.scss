@@ -14,11 +14,16 @@
   overflow: visible;
   z-index: -1;
 
+  &.paused *, *.paused {
+    animation-play-state: paused !important;
+  }
+
   .layer {
     .element {
       position: absolute;
       display: inline-block;
       right: 0;
+      filter: drop-shadow(0px 2px 5px #ccc);
     }
 
     .element-reversed {
@@ -47,28 +52,23 @@
     }
 
     &.earth-layer .scroller .element {
-        transform-origin: bottom right;
-        bottom: 0;
+      transform-origin: bottom right;
+      bottom: 0;
     }
   }
-
-
 
   .bird-flying-left  { @include sideScrollerElement('bird-flying-left.png', 224px, 276px); }
   .bird-flying-right { @include sideScrollerElement('bird-flying-right.png', 219px, 264px); }
   .cactus            { @include sideScrollerElement('cactus.png', 320px, 236px); }
-  .campfire          { @include sideScrollerElement('campfile.png', 320px, 177px); }
   .chubby-shrub      { @include sideScrollerElement('chubby-shrub.png', 149px, 320px); }
   .cloud             { @include sideScrollerElement('cloud.png', 218px, 320px); }
   .grass-patch       { @include sideScrollerElement('grass-patch.png', 261px, 320px); }
   .hills             { @include sideScrollerElement('hills.png', 132px, 320px); }
   .mountains         { @include sideScrollerElement('mountains.png', 334px, 640px); }
   .oak-tree          { @include sideScrollerElement('oak-tree.png', 320px, 297px); }
-  .picnic-table      { @include sideScrollerElement('picnic-table.png', 161px, 320px); }
   .pine-tree         { @include sideScrollerElement('pine-tree.png', 320px, 193px); }
   .sign              { @include sideScrollerElement('sign.png', 320px, 131px); }
   .tall-shrub        { @include sideScrollerElement('tall-shrub.png', 320px, 275px); }
-  .tent              { @include sideScrollerElement('tent.png', 248px, 320px); }
   .tumbleweed        { @include sideScrollerElement('tumbleweed.png', 271px, 273px); }
 
   .the-daytime-firmament {
@@ -95,6 +95,11 @@
     transform: translateX(-65%) scale(0.7);
     transform-origin: center bottom;
 
+    &.parked {
+      left: 40%;
+      transform: translateX(-65%) scale(0.4)
+    }
+
     .packing-materials {
       animation-name: tilt;
       animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
@@ -111,6 +116,95 @@
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
+  }
+
+  &.nighttime .layer:not(.static-layer) .scroller {
+    filter: blur(1px) contrast(80%);
+  }
+
+  .nighttime-scene {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+
+    .tent {
+      @include sideScrollerElement('tent.png', 248px, 320px);
+      transform: scale(0.7);
+      bottom: -3px !important;
+      right: -20px !important;
+      filter: drop-shadow(30px 0px 10px #00000022) !important;
+    }
+
+    .picnic-table {
+      @include sideScrollerElement('picnic-table.png', 161px, 320px);
+      transform: scale(0.5) translateY(-25px);
+      right: 270px !important;
+      filter: drop-shadow(-30px 0px 10px #00000022) !important;
+    }
+
+    .campfire {
+      @include sideScrollerElement('campfire.png', 320px, 177px);
+      transform: scale(0.4) translateY(-10px);
+      right: 200px !important;
+    }
+  }
+
+  .the-nighttime-firmament {
+    .the-moon {
+      @include sideScrollerElement('the-moon.png', 320px, 274px);
+      position: absolute;
+      left: 50%;
+      top: -100px;
+      transform: translate(-150%) scale(0.7);
+    }
+  }
+
+  .the-nighttime-firmament, .star-field {
+    position: absolute;
+    inset: -100px 0 0 0;
+    z-index: -100000;
+  }
+
+  .star-field {
+    background-image:
+            radial-gradient(2px 2px at 20px  30px,  #999, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 40px  70px,  #000, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 50px  160px, #666, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 90px  40px,  #ccc, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 130px 80px,  #222, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 160px 120px, #333, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: flicker 5s infinite;
+    opacity: 0;
+  }
+
+  .star-field:nth-child(1) {
+    background-position: 50% 50%;
+    animation-delay: 0s;
+  }
+
+  .star-field:nth-child(2) {
+    background-position: 20% 60%;
+    animation-delay: 1s;
+  }
+
+  .star-field:nth-child(3) {
+    background-position: -20% -30%;
+    animation-delay: 2s;
+  }
+
+  .star-field:nth-child(4) {
+    background-position: 40% -80%;
+    animation-delay: 3s;
+  }
+
+  .star-field:nth-child(5) {
+    background-position: -20% 30%;
+    animation-delay: 4s;
   }
 }
 
@@ -145,4 +239,18 @@
   50%  { transform: rotate(0deg); }
   75%  { transform: rotate(2deg); }
   100% { transform: rotate(0deg); }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  85% {
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  100% {
+    opacity: 0;
+  }
 }

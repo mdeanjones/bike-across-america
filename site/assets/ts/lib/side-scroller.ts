@@ -12,8 +12,8 @@ type Asset = {
 
 type Collection = {
   assets:     Asset[];
-  spawnRate:  [number, number];
-  scrollRate: [number, number];
+  spawnRate:  [number, number] | 0;
+  scrollRate: [number, number] | 0;
 }
 
 export default class SideScroller {
@@ -23,6 +23,85 @@ export default class SideScroller {
   constructor(rootId = 'side-scroller') {
     this.scrollerRoot = document.getElementById(rootId) as HTMLElement;
 
+    // It's your animation, and you want it now!
+    const query = new URLSearchParams(document.location.search);
+
+    switch (query.get('sidescroller')) {
+      case 'keep-those-wheels-rolling':
+        this.keepThoseWheelsRolling();
+        break;
+
+      case 'rest-those-tired-legs':
+        this.restThoseTiredLegs();
+        break;
+
+      default:
+        // Not really accurate at all, but simple.
+        const currentHour = new Date().getHours();
+        const ridingTime  = currentHour > 7 && currentHour < 20;
+
+        if (ridingTime) {
+          this.keepThoseWheelsRolling();
+        }
+        else {
+          this.restThoseTiredLegs();
+        }
+    }
+
+    if (document.visibilityState === 'visible') {
+      this.intervals.forEach(interval => interval.start(true));
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      document.visibilityState === 'visible' ? this.play() : this.pause();
+    });
+
+    this.scrollerRoot.addEventListener('animationend', (event: AnimationEvent) => {
+      if (event.animationName === 'scroll-right-to-left' || event.animationName === 'scroll-left-to-right') {
+        const target = event.target as HTMLElement;
+        target.parentNode?.removeChild(target);
+      }
+    });
+  }
+
+  randomElement<T>(array: T[]): T {
+    return array[this.randomInteger(0, array.length - 1)];
+  }
+
+  randomInteger(bounds: [number, number]): number;
+  randomInteger(min: number, max: number): number;
+  randomInteger(minOrBounds: number | [number, number], max?: number) {
+    const [low, high] = Array.isArray(minOrBounds) ? minOrBounds : [minOrBounds, max ?? 0];
+    return Math.floor(this.randomNumber(Math.ceil(low), Math.floor(high) + 1));
+  }
+
+  randomNumber(bounds: [number, number]): number;
+  randomNumber(min: number, max: number): number;
+  randomNumber(minOrBounds: number | [number, number], max?: number) {
+    const [low, high] = Array.isArray(minOrBounds) ? minOrBounds : [minOrBounds, max ?? 0];
+    return Math.random() * (high - low) + low;
+  }
+
+  /**
+   * Resume all animations and paused timers.
+   */
+  protected play() {
+    this.scrollerRoot.classList.remove('paused');
+    this.intervals.forEach(interval => interval.start());
+  }
+
+  /**
+   * Stop all animations and running timers.
+   */
+  protected pause() {
+    this.scrollerRoot.classList.add('paused');
+    this.intervals.forEach(interval => interval.stop());
+  }
+
+  /**
+   * Configuration for the daytime.
+   */
+  protected keepThoseWheelsRolling() {
     this.initializeAnimatedLayer('air', undefined, {
       spawnRate:  [3000,  9000],
       scrollRate: [25000, 45000],
@@ -89,63 +168,82 @@ export default class SideScroller {
       ],
     });
 
-    if (document.visibilityState === 'visible') {
-      this.intervals.forEach(interval => interval.start(true));
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      this.intervals.forEach(
-        interval => document.visibilityState === 'visible' ? interval.start() : interval.stop(),
-      );
-    });
-
-    this.scrollerRoot.addEventListener('animationend', (event: AnimationEvent) => {
-      if (event.animationName === 'scroll-right-to-left' || event.animationName === 'scroll-left-to-right') {
-        const target = event.target as HTMLElement;
-        target.parentNode?.removeChild(target);
-      }
-    });
-  }
-
-  randomElement<T>(array: T[]): T {
-    return array[this.randomInteger(0, array.length - 1)];
-  }
-
-  randomInteger(bounds: [number, number]): number;
-  randomInteger(min: number, max: number): number;
-  randomInteger(minOrBounds: number | [number, number], max?: number) {
-    const [low, high] = Array.isArray(minOrBounds) ? minOrBounds : [minOrBounds, max ?? 0];
-    return Math.floor(this.randomNumber(Math.ceil(low), Math.floor(high) + 1));
-  }
-
-  randomNumber(bounds: [number, number]): number;
-  randomNumber(min: number, max: number): number;
-  randomNumber(minOrBounds: number | [number, number], max?: number) {
-    const [low, high] = Array.isArray(minOrBounds) ? minOrBounds : [minOrBounds, max ?? 0];
-    return Math.random() * (high - low) + low;
+    this.scrollerRoot.classList.remove('nighttime');
+    this.scrollerRoot.classList.add('daytime');
   }
 
   /**
-   *
+   * Configuration for the night.
+   */
+  protected restThoseTiredLegs() {
+    this.initializeAnimatedLayer('air', undefined, {
+      spawnRate:  [3000,  10000],
+      scrollRate: [70000, 90000],
+      assets: [
+        { className: 'cloud', scaleBounds: [0.05, 0.3], verticalJitter: 200 },
+      ],
+    });
+
+    this.initializeAnimatedLayer('staged', 80, {
+      spawnRate:  0,
+      scrollRate: 0,
+      assets: [
+        { className: 'mountains', scaleBounds: [0.4, 0.85] },
+      ]
+    }, 10);
+
+    this.initializeAnimatedLayer('air', undefined, {
+      spawnRate:  [3000,  10000],
+      scrollRate: [60000, 70000],
+      assets: [
+        { className: 'cloud', scaleBounds: [0.05, 0.5], verticalJitter: 200 },
+      ],
+    });
+
+    this.initializeAnimatedLayer('staged', 45, {
+      spawnRate:  0,
+      scrollRate: 0,
+      assets: [
+        { className: 'pine-tree', scaleBounds: [0.5, 0.7] },
+        { className: 'oak-tree',  scaleBounds: [0.5, 0.8] },
+      ]
+    }, 20);
+
+    this.initializeStaticLayer('night', 10);
+
+    this.scrollerRoot.appendChild(this.buildLayer('staged', 10));
+    this.scrollerRoot.classList.remove('daytime');
+    this.scrollerRoot.classList.add('nighttime');
+  }
+
+  /**
+   * Build an animation layer, and set up an interval to keep it populated with
+   * all sorts of fun stuff.
    */
   protected initializeAnimatedLayer(
     stage:       'staged' | 'earth' | 'air',
     stageHeight: number | undefined,
     collection:  Collection,
+    initialPop?: number,
   ) {
     const layer = stage === 'air'
       ? this.buildLayer(stage)
       : this.buildLayer(stage, stageHeight ?? 0);
 
-    const interval = new Interval({
-      timeout:  this.randomInteger(collection.spawnRate),
-      callback: () => this.insertAssetFromCollection(collection, layer),
-    });
+    const interval = Array.isArray(collection.spawnRate)
+      ? new Interval({
+        timeout:  this.randomInteger(collection.spawnRate),
+        callback: () => this.insertAssetFromCollection(collection, layer),
+      })
+      : undefined;
 
     this.scrollerRoot.appendChild(layer);
-    this.intervals.push(interval);
 
-    for (let i = 0; i < this.randomInteger(0, 4); i += 1) {
+    if (interval) {
+      this.intervals.push(interval);
+    }
+
+    for (let i = 0; i < (initialPop ?? this.randomInteger(0, 4)); i += 1) {
       this.insertAssetFromCollection(collection, layer, true);
     }
 
@@ -153,26 +251,49 @@ export default class SideScroller {
   }
 
   /**
-   *
+   * Build a static layer. One for day and the other for night.
    */
   protected initializeStaticLayer(stage: 'day' | 'night', stageHeight: number) {
     const layer    = this.buildLayer('earth', stageHeight);
     const scroller = layer.querySelector('.scroller');
 
+    layer.classList.add('static-layer');
+
     // It is still a ".scroller" for layout purposes
 
     if (scroller) {
-      scroller.innerHTML = `
-        <div class="element the-daytime-firmament">
-          <div class="the-sun"></div>
-        </div>
-
-        <div class="element bike-box">
-          <div class="packing-materials">
-            <div class="bicycle"></div>
+      if (stage === 'day') {
+        scroller.innerHTML = `
+          <div class="element the-daytime-firmament">
+            <div class="the-sun"></div>
           </div>
-        </div>
-      `;
+
+          <div class="element bike-box">
+            <div class="packing-materials">
+              <div class="bicycle"></div>
+            </div>
+          </div>
+        `;
+      }
+      else if (stage === 'night') {
+        scroller.innerHTML = `
+          <div class="element the-nighttime-firmament">
+            <div class="star-field"></div>
+            <div class="star-field"></div>
+            <div class="star-field"></div>
+            <div class="star-field"></div>
+            <div class="star-field"></div>
+            <div class="the-moon"></div>
+          </div>
+
+          <div class="nighttime-scene">
+            <div class="element bicycle paused"></div>
+            <div class="element picnic-table"></div>
+            <div class="element campfire"></div>
+            <div class="element tent"></div>
+          </div>
+        `;
+      }
     }
 
     this.scrollerRoot.appendChild(layer);
@@ -184,11 +305,19 @@ export default class SideScroller {
    * Spawns a new asset into the provided layer, and returns the pseudorandom millisecond
    * wait time until another asset should follow.
    */
-  insertAssetFromCollection(collection: Collection, layer: HTMLElement, spawnInFlight: boolean = false) {
+  protected insertAssetFromCollection(
+    collection:    Collection,
+    layer:         HTMLElement,
+    spawnInFlight: boolean = false
+  ) {
     const asset       = this.randomElement(collection.assets);
-    const nextSpawnMs = this.randomInteger(collection.spawnRate);
-    const scrollMs    = this.randomInteger(collection.scrollRate);
+    const nextSpawnMs = Array.isArray(collection.spawnRate)  ? this.randomInteger(collection.spawnRate) : 1000;
+    const scrollMs    = Array.isArray(collection.scrollRate) ? this.randomInteger(collection.scrollRate) : 1000;
     const element     = this.createAssetElement(asset);
+
+    if (!Array.isArray(collection.scrollRate)) {
+      element.classList.add('paused');
+    }
 
     const animateName = asset.reversed ? 'scroll-left-to-right' : 'scroll-right-to-left';
     const duration    = asset.accelerate ? scrollMs * this.randomNumber(0.2, 0.5) : scrollMs;
