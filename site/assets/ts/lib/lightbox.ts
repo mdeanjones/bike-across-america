@@ -8,6 +8,7 @@ export default class Lightbox {
   public readonly contentBox:   HTMLElement;
   public readonly loadingIcon:  HTMLElement;
   public readonly fullResImage: HTMLImageElement;
+  public readonly flickrLink:   HTMLAnchorElement;
   public readonly titleBlock:   HTMLElement;
 
   protected currentThumb?: HTMLImageElement;
@@ -23,6 +24,7 @@ export default class Lightbox {
     this.contentBox   = elements.contentBox;
     this.loadingIcon  = elements.loadingIcon;
     this.fullResImage = elements.fullResImage;
+    this.flickrLink   = elements.flickrLink;
     this.titleBlock   = elements.titleBlock;
     this.thumbnails   = [...document.querySelectorAll(`${ container } img`)] as HTMLImageElement[];
 
@@ -121,19 +123,20 @@ export default class Lightbox {
     this.loadingIcon.style.display = 'block';
 
     if (this.fullResImage.src) {
-      await this.toggleOpacity(this.fullResImage.parentElement!, 'down');
+      await this.toggleOpacity(this.fullResImage.parentElement!.parentElement!, 'down');
     }
 
     const onLoadEvent = async () => {
       this.loadingIcon.style.display = 'none';
       this.titleBlock.innerText      = thumbnail.alt ?? '';
 
-      await this.toggleOpacity(this.fullResImage.parentElement!, 'up');
+      await this.toggleOpacity(this.fullResImage.parentElement!.parentElement!, 'up');
       this.fullResImage.removeEventListener('load', onLoadEvent);
     };
 
     this.fullResImage.addEventListener('load', onLoadEvent);
     this.fullResImage.src = thumbnail.getAttribute('data-full-res') ?? '';
+    this.flickrLink.href  = thumbnail.getAttribute('data-flickr-url') ?? '#';
   }
 
   protected async prevImage() {
@@ -176,7 +179,7 @@ export default class Lightbox {
         </div>
 
         <div class="fade">
-          <img />
+          <a href="#" target="_blank" rel="noopener" title="Open in Flickr"><img /></a>
           <p class="text-light mb-0 mt-2"></p>
         </div>
       </div>
@@ -192,7 +195,8 @@ export default class Lightbox {
       closeButton:  container.querySelector('.close-button')   as HTMLButtonElement,
       contentBox:   container.querySelector('.lightbox')       as HTMLElement,
       loadingIcon:  container.querySelector('.load-indicator') as HTMLElement,
-      fullResImage: container.querySelector('img')             as HTMLImageElement,
+      fullResImage: container.querySelector('.lightbox img')   as HTMLImageElement,
+      flickrLink:   container.querySelector('.lightbox a')     as HTMLAnchorElement,
       titleBlock:   container.querySelector('p')               as HTMLElement,
     };
   }

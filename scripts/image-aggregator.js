@@ -25,7 +25,7 @@ function getFlickrUrl(apiKey, userId, photoSetId) {
  * @property {string} longitude
  * @property {string} url_n
  * @property {string} url_o
- * @property {number} dateupload
+ * @property {string} dateupload
  * @property {number} height_n
  * @property {number} width_n
  * @property {number} height_o
@@ -73,7 +73,13 @@ async function loadNewImages(gallery, apiKey, userId, photoSetId) {
   const json = await fetch(url).then(response => response.json());
 
   /** @type {FlickrPhoto[]} */
-  const images = json.photoset.photo || json.photos.photo;
+  const images = (json.photoset.photo || json.photos.photo).sort((a, b) => {
+    if (a.dateupload === b.dateupload) {
+      return a.id.localeCompare(b.id);
+    }
+
+    return parseInt(b.dateupload, 10) - parseInt(a.dateupload, 10);
+  });
 
   // Pull the unique ID of the last recorded "newest" image for the user
   let latest = gallery.latest?.find(item => item.userId === userId);
@@ -87,6 +93,13 @@ async function loadNewImages(gallery, apiKey, userId, photoSetId) {
   // object of the response. In this way, it is very easy to determine whether
   // any new images have been added.
   const newIdTimestamp = images.length ? `${ images[0].id }-${ images[0].dateupload }` : '';
+
+  console.log(`${ userId }:
+     PhotoSet: ${ photoSetId }
+      Results: ${ images.length }
+    Prev HEAD: ${ latest?.idTimestamp }
+     New HEAD: ${ newIdTimestamp }
+        Delta: ${ endAt }`);
 
   if (!latest) {
     latest = { userId, idTimestamp: '' };
