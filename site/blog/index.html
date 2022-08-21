@@ -1,26 +1,38 @@
 ---
-layout: default
+layout: blog
 title: Blog
 ---
 
-{% include navigation-links.html %}
+<h1 class="display-5">The Blog</h1>
 
-<div class="container">
-  <h1 class="display-5">Latest</h1>
+<p class="lead">That's right - this is a blog. We blog here.</p>
+<p>We write, you read, and who knows what might happen next. Maybe there is a book deal in our future.
+  Or a movie deal? A franchise?</p>
+<p>I think that, perhaps, <span id="author-name"></span> put it best...</p>
 
-  <div class="list-group">
-    {% assign mostRecent = site.posts | slice: 0, 10 %}
+<div class="card text-white bg-dark">
+  <div class="card-body">
+    <figure id="writing-quote" class="mb-0">
+      <blockquote class="blockquote">
+        <p class="fst-italic"></p>
+      </blockquote>
 
-    {% for post in mostRecent %}
-      <a href="{{ post.url }}" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ post.title }}</h5>
-          <small>{{ post.date | date_to_string: "ordinal", "US" }}</small>
-        </div>
-
-        <p class="mb-1">{{ post.author }}</p>
-        <small class="post-excerpt">{{ post.excerpt }}</small>
-      </a>
-    {% endfor %}
+      <figcaption class="blockquote-footer mb-0 text-end text-light"></figcaption>
+    </figure>
   </div>
 </div>
+
+<script>
+  const Quotes      = {{ site.data.writing-quotes | jsonify }};
+  const randomQuote = Quotes[Math.floor(Math.random() * Quotes.length)];
+
+  let tagline = randomQuote.author;
+
+  if (randomQuote.book) {
+    tagline += `, ${ randomQuote.book }`;
+  }
+
+  document.querySelector('#writing-quote .blockquote p').innerText = randomQuote.quote;
+  document.querySelector('#writing-quote figcaption').innerText = tagline;
+  document.querySelector('#author-name').innerText = randomQuote.author;
+</script>

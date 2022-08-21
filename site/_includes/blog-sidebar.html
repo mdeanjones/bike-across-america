@@ -1,0 +1,42 @@
+{% assign jordanUrl = '/blog/jordan/' %}
+{% assign julieUrl  = '/blog/julie/' %}
+{% assign kellyUrl  = '/blog/kelly/' %}
+{% assign mikeUrl   = '/blog/mike/' %}
+
+<div class="list-group-stack mb-3">
+  <div class="list-group list-group-horizontal flex-fill">
+    <a href="{{ jordanUrl }}" class="list-group-item list-group-item-action{% if page.url == jordanUrl %} active{% endif %}">
+      Jordan
+    </a>
+
+    <a href="{{ julieUrl }}" class="list-group-item list-group-item-action{% if page.url == julieUrl %} active{% endif %}">
+      Julie
+    </a>
+  </div>
+
+  <div class="list-group list-group-horizontal flex-fill">
+    <a href="{{ kellyUrl }}" class="list-group-item list-group-item-action{% if page.url == kellyUrl %} active{% endif %}">
+      Kelly
+    </a>
+
+    <a href="{{ mikeUrl }}" class="list-group-item list-group-item-action{% if page.url == mikeUrl %} active{% endif %}">
+      Mike
+    </a>
+  </div>
+</div>
+
+<h4 class="fw-lighter">Post History</h4>
+
+<div class="list-group">
+  {% for post in site.posts %}
+  {% assign activeClass = nil %}
+
+  {% if page.url == post.url %}
+  {% assign activeClass = " active" %}
+  {% endif %}
+
+  <a href="{{ post.url }}" class="list-group-item list-group-item-action{{ activeClass }}">
+    {{ post.date | date_to_string: "ordinal", "US" }} <small>by {{ post.author }}</small>
+  </a>
+  {% endfor %}
+</div>

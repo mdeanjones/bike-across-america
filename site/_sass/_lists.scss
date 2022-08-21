@@ -1,0 +1,22 @@
+.list-group-stack {
+  > .list-group:not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    > .list-group-item, > .list-group-item-action {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  > .list-group:not(:first-child) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    > .list-group-item, > .list-group-item-action {
+      border-top: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}

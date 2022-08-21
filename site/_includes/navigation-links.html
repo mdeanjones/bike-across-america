@@ -24,30 +24,54 @@
   {% assign blogClass = ' active' %}
 {% endif %}
 
-<nav class="pt-1 mb-2">
-  <ul class="nav nav-tabs justify-content-center">
-    <li class="nav-item">
-      <a href="{{ homeUrl }}" class="nav-link {{ homeClass }}" {% if homeClass %} aria-active="page"{% endif %}>
-        Home
-      </a>
-    </li>
+<div class="sticky-top" style="top: -1px">
+  <nav class="pt-1 bg-light">
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a href="{{ homeUrl }}" class="nav-link {{ homeClass }}" {% if homeClass %} aria-active="page"{% endif %}>
+          Home
+        </a>
+      </li>
 
-    <li class="nav-item">
-      <a href="{{ trackUrl }}" class="nav-link {{ trackClass }}" {% if trackClass %} aria-active="page"{% endif %}>
-        Track<span class="d-none d-md-inline"> the Journey</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a href="{{ trackUrl }}" class="nav-link {{ trackClass }}" {% if trackClass %} aria-active="page"{% endif %}>
+          Track<span class="d-none d-md-inline"> the Journey</span>
+        </a>
+      </li>
 
-    <li class="nav-item">
-      <a href="{{ mediaUrl }}" class="nav-link {{ mediaClass }}" {% if mediaClass %} aria-active="page"{% endif %}>
-        Media<span class="d-none d-md-inline"> Gallery</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a href="{{ mediaUrl }}" class="nav-link {{ mediaClass }}" {% if mediaClass %} aria-active="page"{% endif %}>
+          Media<span class="d-none d-md-inline"> Gallery</span>
+        </a>
+      </li>
 
-    <li class="nav-item">
-      <a href="{{ blogUrl }}" class="nav-link {{ blogClass }}" {% if blogClass %} aria-active="page"{% endif %}>
-        Blog
-      </a>
-    </li>
-  </ul>
-</nav>
+      <li class="nav-item">
+        <a href="{{ blogUrl }}" class="nav-link {{ blogClass }}" {% if blogClass %} aria-active="page"{% endif %}>
+          Blog
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="py-2 bg-white"></div>
+</div>
+
+<script>
+  const el = document.querySelector(".sticky-top")
+
+  const observer = new IntersectionObserver(
+    ([e]) => {
+      e.target
+        .classList
+        .toggle("is-pinned", e.intersectionRatio < 1);
+
+      e.target
+        .querySelector('.bg-white')
+        .classList
+        .toggle('shadow', e.intersectionRatio < 1);
+    },
+    { threshold: [1] }
+  );
+
+  observer.observe(el);
+</script>

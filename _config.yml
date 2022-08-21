@@ -22,25 +22,21 @@ defaults:
   -
     scope:
       path: "blog/jordan"
-      type: posts
     values:
       author: Jordan Vest
   -
     scope:
       path: "blog/julie"
-      type: posts
     values:
       author: Julie Kauffman
   -
     scope:
       path: "blog/kelly"
-      type: posts
     values:
       author: Kelly Johnson
   -
     scope:
       path: "blog/mike"
-      type: posts
     values:
       author: Mike Jones
 

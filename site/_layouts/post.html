@@ -1,8 +1,6 @@
 ---
-layout: default
+layout: blog
 ---
-
-{% include navigation-links.html %}
 
 <div class="container">
   <h1>{{ page.title }}</h1>
@@ -24,7 +22,7 @@ layout: default
         <a class="btn btn-outline-dark btn-block text-start" href="{{ page.previous.url }}">
           &laquo; Previous
           <hr class="my-1" />
-          <span class="text-nowrap">{{ page.previous.title }}</span>
+          <span class="text-truncate d-inline-block">{{ page.previous.title }}</span>
         </a>
       {% endif %}
     </div>
@@ -34,7 +32,7 @@ layout: default
         <a class="btn btn-outline-dark btn-block text-end" href="{{ page.next.url }}">
           Next &raquo;
           <hr class="my-1" />
-          <span class="text-nowrap">{{ page.next.title }}</span>
+          <span class="text-truncate d-inline-block">{{ page.next.title }}</span>
         </a>
       {% endif %}
     </div>

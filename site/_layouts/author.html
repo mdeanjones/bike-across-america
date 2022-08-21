@@ -1,0 +1,64 @@
+---
+layout: blog
+---
+
+<h1 class="display-5">{{ page.author }}</h1>
+
+{% if page.tagline %}
+  <p class="lead fst-italic">{{page.tagline}}</p>
+{% endif %}
+
+{% if page.heroImage %}
+  <figure class="figure mb-0">
+    <img src="{{ page.heroImage }}" class="img-fluid img-figure rounded" alt="{{ page.heroImageAlt }}">
+    <figcaption class="figure-caption text-end">{{ page.heroImageAlt }}</figcaption>
+  </figure>
+{% endif %}
+
+<hr />
+
+<div class="clearfix">
+  {% if page.image %}
+    <figure class="figure col-12 col-md-6 float-end mb-3 ms-3">
+      <img
+          src="{{ page.image }}"
+          class="img-thumbnail img-figure"
+          alt="{{ page.imageAlt }}"
+      >
+      <figcaption class="figure-caption text-end">{{ page.imageAlt }}</figcaption>
+    </figure>
+  {% endif %}
+
+  {% for image in page.images %}
+    <figure class="figure col-12 col-md-6 float-end mb-3 ms-3">
+      <img
+          src="{{ image.image }}"
+          class="img-thumbnail img-figure"
+          alt="{{ page.imageAlt }}"
+      >
+      <figcaption class="figure-caption text-end">{{ image.imageAlt }}</figcaption>
+    </figure>
+  {% endfor %}
+
+  {{ content }}
+</div>
+
+<hr class="mb-4" />
+
+<h3 class="fw-lighter mb-4">Latest Posts</h3>
+
+<div class="list-group">
+  {% assign mostRecent = site.posts | where: "author", page.author | slice: 0, 10 %}
+
+  {% for post in mostRecent %}
+  <a href="{{ post.url }}" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ post.title }}</h5>
+      <small>{{ post.date | date_to_string: "ordinal", "US" }}</small>
+    </div>
+
+    <p class="mb-1">{{ post.author }}</p>
+    <small class="post-excerpt">{{ post.excerpt }}</small>
+  </a>
+  {% endfor %}
+</div>
