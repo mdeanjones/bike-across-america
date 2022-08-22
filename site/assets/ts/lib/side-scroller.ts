@@ -38,7 +38,7 @@ export default class SideScroller {
       default:
         // Not really accurate at all, but simple.
         const currentHour = new Date().getHours();
-        const ridingTime  = currentHour > 7 && currentHour < 20;
+        const ridingTime  = currentHour >= 7 && currentHour < 20;
 
         if (ridingTime) {
           this.keepThoseWheelsRolling();
