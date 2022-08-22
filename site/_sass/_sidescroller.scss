@@ -81,7 +81,11 @@
     transform-origin: top center;
     left: 45%;
     bottom: unset !important;
-    top: -250px;
+    top: -300px;
+
+    @media(max-width: 500px) {
+      left: 38%;
+    }
 
     .the-sun {
       @include sideScrollerElement('the-sun.png', 320px, 320px);
@@ -136,14 +140,14 @@
       @include sideScrollerElement('tent.png', 248px, 320px);
       transform: scale(0.7);
       bottom: -3px !important;
-      right: -20px !important;
+      right: 0 !important;
       filter: drop-shadow(30px 0px 10px #00000022) !important;
     }
 
     .picnic-table {
       @include sideScrollerElement('picnic-table.png', 161px, 320px);
       transform: scale(0.5) translateY(-25px);
-      right: 270px !important;
+      right: 250px !important;
       filter: drop-shadow(-30px 0px 10px #00000022) !important;
     }
 
@@ -161,6 +165,10 @@
       left: 50%;
       top: -100px;
       transform: translate(-150%) scale(0.7);
+
+      @media(max-width: 500px) {
+        left: 60%;
+      }
     }
   }
 

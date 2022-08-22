@@ -287,10 +287,9 @@ export default class SideScroller {
           </div>
 
           <div class="nighttime-scene">
-            <div class="element bicycle paused"></div>
             <div class="element picnic-table"></div>
-            <div class="element campfire"></div>
             <div class="element tent"></div>
+            <div class="element campfire"></div>
           </div>
         `;
       }
