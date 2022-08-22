@@ -51,6 +51,10 @@ title: Track The Journey - Biking Across America
             <td>{{ checkin.dist | default: 0 }} m</td>
             <td>{{ totalDistance }} m</td>
           </tr>
+        {% else %}
+          <tr>
+            <td colspan="7">No Data Available</td>
+          </tr>
         {% endfor %}
       </tbody>
     </table>

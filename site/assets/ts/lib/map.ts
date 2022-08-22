@@ -89,6 +89,12 @@ function initMap() {
     bounds.extend(pin);
   }
 
+  // Defaults, before any checkins have occurred
+  if (!pins.length) {
+    bounds.extend({ lat: 37.774203, lng: -122.512961 }); // Ocean Beach, San Francisco
+    bounds.extend({ lat: 37.229877, lng: -76.497523 }); // Yorktown, Virginia
+  }
+
   map.fitBounds(bounds);
 
   // Cause the markers to drop in a staggered wave
