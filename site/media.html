@@ -41,7 +41,7 @@ title: Media - Biking Across America
 
   <div id="image-gallery" class="gg-container">
     <div class="gg-box">
-      {% for image in site.data.gallery-wall.images %}
+      {% for image in site.data.gallery-wall %}
         <img
             src="https://live.staticflickr.com/{{image.thumb}}"
             loading="lazy"
@@ -89,7 +89,7 @@ title: Media - Biking Across America
       const row = document.createElement('tr');
 
       row.innerHTML = `
-        <td><img src="${ img.src }" class="img-fluid" /></td>
+        <td><img src="${ img.src }" class="img-fluid" loading="lazy" /></td>
         <td
           class="align-middle user-select-all"
           onclick="javascript: copyToClipboard(this)"

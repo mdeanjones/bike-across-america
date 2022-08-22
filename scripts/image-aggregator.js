@@ -6,18 +6,30 @@ const path  = require('path');
 // https://www.flickr.com/services/api/explore/flickr.people.getPublicPhotos
 // https://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
 
-function getFlickrUrl(apiKey, userId, photoSetId) {
-  let url = 'https://www.flickr.com/services/rest/?'
+function getFlickrUrl(apiKey, userId, photoSetId, page) {
+  const url = 'https://www.flickr.com/services/rest/'
 
-  url += typeof photoSetId === 'string'
-    ? `method=flickr.photosets.getPhotos&photoset_id=${photoSetId}`
-    : 'method=flickr.people.getPublicPhotos';
+  const queryParams = [
+    typeof photoSetId === 'string'
+      ? `method=flickr.photosets.getPhotos&photoset_id=${photoSetId}`
+      : 'method=flickr.people.getPublicPhotos',
+    `api_key=${apiKey}`,
+    `user_id=${userId}`,
+    `extras=url_o,url_n,date_upload,geo`,
+    `format=json`,
+    `nojsoncallback=1`,
+    `per_page=500`,
+  ];
 
-  return url + `&api_key=${apiKey}&user_id=${userId}&extras=url_o,url_n,date_upload,geo&format=json&nojsoncallback=1`;
+  if (typeof page === 'number') {
+    queryParams.push(`page=${ page }`);
+  }
+
+  return `${ url }?${ queryParams.join('&') }`;
 }
 
 /**
- * @typedef {Object} FlickrPhoto
+ * @typedef {object} FlickrPhoto
  *
  * @property {string} id
  * @property {string} title
@@ -33,6 +45,20 @@ function getFlickrUrl(apiKey, userId, photoSetId) {
  */
 
 /**
+ * @typedef {object} FlickrApiResponse
+ *
+ * @property {string} id
+ * @property {string} primary
+ * @property {string} owner
+ * @property {string} ownername
+ * @property {number | string} page
+ * @property {number | string} pages
+ * @property {number} total
+ * @property {string} perpage
+ * @property {FlickrPhoto[]} photo
+ */
+
+/**
  * @typedef {Object} GalleryPhoto
  *
  * @property {string} id
@@ -41,91 +67,64 @@ function getFlickrUrl(apiKey, userId, photoSetId) {
  * @property {string} lng
  * @property {string} thumb
  * @property {string} image
- * @property {number} date
+ * @property {string} date
  * @property {{ h: number, w: number }} txy
  * @property {{ h: number, w: number }} ixy
  */
 
 /**
- * @typedef {Object} LatestRecord
- *
- * @property {string} userId
- * @property {string} idTimestamp
- */
-
-/**
- * @typedef {Object} Gallery
- *
- * @property {LatestRecord[]} latest
- * @property {GalleryPhoto[]} images
- */
-
-/**
- * @param {Gallery} gallery
+ * @param {GalleryPhoto[]} gallery
  * @param {string} apiKey
  * @param {string} userId
  * @param {string} [photoSetId]
+ * @param {number} [page]
+ * @param {number} [callDepth]
  *
- * @returns {Promise<Gallery>}
+ * @returns {Promise<GalleryPhoto[]>}
  */
-async function loadNewImages(gallery, apiKey, userId, photoSetId) {
-  const url  = getFlickrUrl(apiKey, userId, photoSetId);
+async function loadNewImages(gallery, apiKey, userId, photoSetId, page, callDepth = 1) {
+  const url  = getFlickrUrl(apiKey, userId, photoSetId, page);
   const json = await fetch(url).then(response => response.json());
 
-  /** @type {FlickrPhoto[]} */
-  const images = (json.photoset.photo || json.photos.photo).sort((a, b) => {
-    if (a.dateupload === b.dateupload) {
-      return a.id.localeCompare(b.id);
-    }
+  /** @type {FlickrApiResponse} */
+  const response = json.photoset || json.photos;
 
-    return parseInt(b.dateupload, 10) - parseInt(a.dateupload, 10);
-  });
+  console.log(`---------------
+${ userId }
 
-  // Pull the unique ID of the last recorded "newest" image for the user
-  let latest = gallery.latest?.find(item => item.userId === userId);
+      PhotoSet: ${ photoSetId }
+  Result Count: ${ response.photo.length }
+          Page: ${ response.page } of ${ response.pages }
+---------------`);
 
-  // Find the index of the last recorded "newest" image within the new list
-  const endAt = latest?.idTimestamp
-    ? images.findIndex((item) => `${ item.id }-${ item.dateupload }` === latest.idTimestamp)
-    : images.length;
+  for (let i = 0; i < response.photo.length; i += 1) {
+    const img = response.photo[i];
 
-  // The ID of the new "newest" image will always be derived from the first
-  // object of the response. In this way, it is very easy to determine whether
-  // any new images have been added.
-  const newIdTimestamp = images.length ? `${ images[0].id }-${ images[0].dateupload }` : '';
-
-  console.log(`${ userId }:
-     PhotoSet: ${ photoSetId }
-      Results: ${ images.length }
-    Prev HEAD: ${ latest?.idTimestamp }
-     New HEAD: ${ newIdTimestamp }
-        Delta: ${ endAt }`);
-
-  if (!latest) {
-    latest = { userId, idTimestamp: '' };
-    gallery.latest.push(latest);
-  }
-
-  latest.idTimestamp = newIdTimestamp;
-
-  const newImages = [];
-
-  for (let i = 0; i < endAt; i += 1) {
-    newImages.push({
+    gallery.push({
       owner: userId,
-      id:    images[i].id,
-      title: images[i].title,
-      lat:   images[i].latitude,
-      lng:   images[i].longitude,
-      date:  images[i].dateupload,
-      thumb: images[i].url_n.replace('https://live.staticflickr.com/', ''),
-      image: images[i].url_o.replace('https://live.staticflickr.com/', ''),
-      txy:   { h: images[i].height_n, w: images[i].width_n },
-      ixy:   { h: images[i].height_o, w: images[i].width_o },
+      id:    img.id,
+      title: img.title,
+      lat:   img.latitude,
+      lng:   img.longitude,
+      date:  img.dateupload,
+      thumb: img.url_n.replace('https://live.staticflickr.com/', ''),
+      image: img.url_o.replace('https://live.staticflickr.com/', ''),
+      txy:   { h: img.height_n, w: img.width_n },
+      ixy:   { h: img.height_o, w: img.width_o },
     });
   }
 
-  gallery.images = [...newImages, ...gallery.images];
+  const integerPage  = typeof response.page === 'string'  ? parseInt(response.page) : response.page;
+  const integerPages = typeof response.pages === 'string' ? parseInt(response.pages) : response.pages;
+
+  if (integerPage < integerPages) {
+    if (callDepth >= 5) {
+      console.log('Maximum API Call Depth Reached. Stopping.')
+    }
+    else {
+      await loadNewImages(gallery, apiKey, userId, photoSetId, integerPage + 1, callDepth + 1);
+    }
+  }
 
   return gallery;
 }
@@ -142,17 +141,16 @@ async function loadNewImages(gallery, apiKey, userId, photoSetId) {
     { userId: '196316248@N03', photoSetId: '72177720301465755' }, // Jordan
   ];
 
-  /** @type {Gallery} */
-  let gallery = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  let count   = gallery.images.length;
+  /** @type {GalleryPhoto[]} */
+  let gallery = [];
 
   for (let { userId, photoSetId } of photoSources) {
     gallery = await loadNewImages(gallery, apiKey, userId, photoSetId);
   }
 
-  gallery.images = gallery.images.sort((a, b) => b.date - a.date);
+  gallery.images = gallery.sort((a, b) => b.date - a.date);
 
   fs.writeFileSync(filePath, JSON.stringify(gallery), 'utf8');
 
-  console.log(`Added ${gallery.images.length - count} new image(s).`);
+  console.log(`Done. The gallery contains ${gallery.length} image(s).`);
 })();
