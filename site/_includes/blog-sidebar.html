@@ -29,14 +29,16 @@
 
 <div class="list-group">
   {% for post in site.posts %}
-  {% assign activeClass = nil %}
+    {% assign activeClass = nil %}
 
-  {% if page.url == post.url %}
-  {% assign activeClass = " active" %}
-  {% endif %}
+    {% if page.url == post.url %}
+      {% assign activeClass = " active" %}
+    {% endif %}
 
-  <a href="{{ post.url }}" class="list-group-item list-group-item-action{{ activeClass }}">
-    {{ post.date | date_to_string: "ordinal", "US" }} <small>by {{ post.author }}</small>
-  </a>
+    <a href="{{ post.url }}" class="list-group-item list-group-item-action{{ activeClass }}">
+      {{ post.date | date_to_string: "ordinal", "US" }} <small>by {{ post.author }}</small>
+    </a>
+  {% else %}
+    <p>None Available</p>
   {% endfor %}
 </div>

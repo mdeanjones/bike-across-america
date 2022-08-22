@@ -51,14 +51,16 @@ layout: blog
   {% assign mostRecent = site.posts | where: "author", page.author | slice: 0, 10 %}
 
   {% for post in mostRecent %}
-  <a href="{{ post.url }}" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{ post.title }}</h5>
-      <small>{{ post.date | date_to_string: "ordinal", "US" }}</small>
-    </div>
+    <a href="{{ post.url }}" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <small>{{ post.date | date_to_string: "ordinal", "US" }}</small>
+      </div>
 
-    <p class="mb-1">{{ post.author }}</p>
-    <small class="post-excerpt">{{ post.excerpt }}</small>
-  </a>
+      <p class="mb-1">{{ post.author }}</p>
+      <small class="post-excerpt">{{ post.excerpt }}</small>
+    </a>
+  {% else %}
+    <p>None Available</p>
   {% endfor %}
 </div>
