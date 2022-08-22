@@ -11,7 +11,7 @@ layout: blog
 {% if page.heroImage %}
   <figure class="figure mb-0">
     <img src="{{ page.heroImage }}" class="img-fluid img-figure rounded" alt="{{ page.heroImageAlt }}">
-    <figcaption class="figure-caption text-end">{{ page.heroImageAlt }}</figcaption>
+    <figcaption class="figure-caption">{{ page.heroImageAlt }}</figcaption>
   </figure>
 {% endif %}
 
@@ -47,7 +47,7 @@ layout: blog
 
 <h3 class="fw-lighter mb-4">Latest Posts</h3>
 
-<div class="list-group">
+<div class="list-group mb-4">
   {% assign mostRecent = site.posts | where: "author", page.author | slice: 0, 10 %}
 
   {% for post in mostRecent %}
