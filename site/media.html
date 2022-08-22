@@ -27,12 +27,56 @@ title: Media - Biking Across America
       {% endfor %}
     </div>
   </div>
+
+  <div id="image-src" class="d-none">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Thumbnail</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 </div>
 
 {% include script-tags.html %}
 
 <script>
-  require(['lib/lightbox'], ({ default: Lightbox }) => {
-    new Lightbox('.gg-container');
-  });
+  const query = new URLSearchParams(document.location.search);
+
+  if (query.has('imgsrc')) {
+    document.querySelector('#image-gallery .gg-box').classList.add('d-none');
+
+    const table = document.querySelector('#image-src');
+    const tbody = table.querySelector('tbody');
+
+    table.classList.remove('d-none');
+
+    document.querySelectorAll('#image-gallery img').forEach((img) => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td><img src="${ img.src }" class="img-fluid" /></td>
+        <td
+          class="align-middle user-select-all"
+          onclick="javascript: copyToClipboard(this)"
+        >${ img.getAttribute('data-full-res') }</td>
+      `;
+
+      tbody.append(row);
+    });
+  }
+  else {
+    require(['lib/lightbox'], ({ default: Lightbox }) => {
+      new Lightbox('.gg-container');
+    });
+  }
+
+  function copyToClipboard(t) {
+    navigator.clipboard.writeText(t.innerText).then(() => {
+      alert("Copied to clipboard");
+    });
+  }
 </script>
