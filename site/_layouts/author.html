@@ -54,7 +54,7 @@ layout: blog
     <a href="{{ post.url }}" class="list-group-item list-group-item-action">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{ post.title }}</h5>
-        <small>{{ post.date | date_to_string: "ordinal", "US" }}</small>
+        <small class="font-monospace">{{ post.date | date_to_string: "ordinal", "US" }}</small>
       </div>
 
       <p class="mb-1">{{ post.author }}</p>

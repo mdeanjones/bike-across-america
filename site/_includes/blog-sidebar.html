@@ -36,7 +36,8 @@
     {% endif %}
 
     <a href="{{ post.url }}" class="list-group-item list-group-item-action{{ activeClass }}">
-      {{ post.date | date_to_string: "ordinal", "US" }} <small>by {{ post.author }}</small>
+      <span class="font-monospace">{{ post.date | date_to_string: "ordinal", "US" }}</span>
+      <small>(by {{ post.author }})</small>
     </a>
   {% else %}
     <p>None Available</p>
