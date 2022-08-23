@@ -45,6 +45,35 @@ layout: blog
 
 <hr class="mb-4" />
 
+{% if page.gearList %}
+  <div class="d-flex align-items-start">
+    <h3 class="fw-lighter">{{ page.author | split: " " | slice: 0 }}'s Gear</h3>
+
+    <div class="ms-3">
+      <button
+        class="btn btn-sm btn-outline-secondary py-1"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#gear-list"
+        aria-expanded="false"
+        aria-controls="gear-list"
+      >Toggle</button>
+    </div>
+  </div>
+
+  <div class="collapse" id="gear-list">
+    <div class="card card-body">
+      <ul class="mb-0">
+        {% for item in page.gearList %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <hr class="mb-4" />
+{% endif %}
+
 <h3 class="fw-lighter mb-4">Latest Posts</h3>
 
 <div class="list-group mb-4">

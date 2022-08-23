@@ -1,7 +1,16 @@
 ---
 layout: author
+
 author: Mike Jones
 tagline: The... Mechanic?
+
+image: /assets/images/author-mike-hero.jpg
+imageAlt: Halfway mark of Percyville on a hot day
+
+gearList:
+    - Item 1
+    - Item 2
+    - Item 3
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in pharetra eros. Morbi maximus
