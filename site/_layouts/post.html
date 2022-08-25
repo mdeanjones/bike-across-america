@@ -7,11 +7,13 @@ layout: blog
   <p><span class="font-monospace">{{ page.date | date_to_string: "ordinal", "US" }}</span> - {{ page.author }}</p>
 
   <div class="clearfix">
-      {% if page.image %}
-        <img src="{{ page.image }}" class="col-12 col-md-6 float-end mb-3 ms-3 img-thumbnail" alt="{{ page.imageAlt }}" />
-      {% endif %}
+    {% if page.image %}
+      <img src="{{ page.image }}" class="col-12 col-md-6 float-end mb-3 ms-3 img-thumbnail" alt="{{ page.imageAlt }}" />
+    {% endif %}
 
+    <div class="author-content">
       {{ content }}
+    </div>
   </div>
 
   <hr />

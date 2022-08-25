@@ -35,9 +35,11 @@
       {% assign activeClass = " active" %}
     {% endif %}
 
-    <a href="{{ post.url }}" class="list-group-item list-group-item-action{{ activeClass }}">
-      <span class="font-monospace">{{ post.date | date_to_string: "ordinal", "US" }}</span>
-      <small>(by {{ post.author }})</small>
+    <a href="{{ post.url }}" class="list-group-item list-group-item-action{{ activeClass }} d-flex">
+      <span class="font-monospace flex-fill">{{ post.date | date_to_string: "ordinal", "US" }}</span>
+      <span>
+        <small>by {{ post.author | split: " " | slice: 0, 1 }}</small>
+      </span>
     </a>
   {% else %}
     <p>None Available</p>

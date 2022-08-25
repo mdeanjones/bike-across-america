@@ -15,7 +15,77 @@ layout: blog
   </figure>
 {% endif %}
 
-<hr />
+{% assign mostRecent = site.posts | where: "author", page.author | slice: 0, 5 %}
+
+{% unless mostRecent == empty %}
+  <hr class="mb-2" />
+
+  <div class="d-flex align-items-start">
+    <div class="me-3">
+      <button
+              class="btn btn-sm btn-outline-secondary py-1"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#latest-posts"
+              aria-expanded="false"
+              aria-controls="latest-posts"
+      >Toggle</button>
+    </div>
+
+    <h4 class="fw-lighter">Latest Posts</h4>
+  </div>
+
+  <div class="collapse" id="latest-posts">
+    <div class="list-group mt-2 mb-2">
+      {% for post in mostRecent %}
+        <a href="{{ post.url }}" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ post.title }}</h5>
+            <small class="font-monospace">{{ post.date | date_to_string: "ordinal", "US" }}</small>
+          </div>
+
+          <p class="mb-1">{{ post.author }}</p>
+          <small class="post-excerpt">{{ post.excerpt }}</small>
+        </a>
+      {% else %}
+        <div class="card card-body">
+          <p class="mb-0">None Available</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endunless %}
+
+{% if page.gearList %}
+  <hr class="mt-1 mb-2" />
+
+  <div class="d-flex align-items-start">
+    <div class="me-3">
+      <button
+              class="btn btn-sm btn-outline-secondary py-1"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#gear-list"
+              aria-expanded="false"
+              aria-controls="gear-list"
+      >Toggle</button>
+    </div>
+
+    <h4 class="fw-lighter">{{ page.author | split: " " | slice: 0 }}'s Gear</h4>
+  </div>
+
+  <div class="collapse" id="gear-list">
+    <div class="card card-body mt-2">
+      <ul class="mb-0">
+        {% for item in page.gearList %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
+
+<hr class="mt-1 mb-4" />
 
 <div class="clearfix">
   {% if page.image %}
@@ -40,56 +110,7 @@ layout: blog
     </figure>
   {% endfor %}
 
-  {{ content }}
-</div>
-
-<hr class="mb-4" />
-
-{% if page.gearList %}
-  <div class="d-flex align-items-start">
-    <h3 class="fw-lighter">{{ page.author | split: " " | slice: 0 }}'s Gear</h3>
-
-    <div class="ms-3">
-      <button
-        class="btn btn-sm btn-outline-secondary py-1"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#gear-list"
-        aria-expanded="false"
-        aria-controls="gear-list"
-      >Toggle</button>
-    </div>
+  <div class="author-content mb-4">
+    {{ content }}
   </div>
-
-  <div class="collapse" id="gear-list">
-    <div class="card card-body">
-      <ul class="mb-0">
-        {% for item in page.gearList %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-
-  <hr class="mb-4" />
-{% endif %}
-
-<h3 class="fw-lighter mb-4">Latest Posts</h3>
-
-<div class="list-group mb-4">
-  {% assign mostRecent = site.posts | where: "author", page.author | slice: 0, 10 %}
-
-  {% for post in mostRecent %}
-    <a href="{{ post.url }}" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ post.title }}</h5>
-        <small class="font-monospace">{{ post.date | date_to_string: "ordinal", "US" }}</small>
-      </div>
-
-      <p class="mb-1">{{ post.author }}</p>
-      <small class="post-excerpt">{{ post.excerpt }}</small>
-    </a>
-  {% else %}
-    <p>None Available</p>
-  {% endfor %}
 </div>
