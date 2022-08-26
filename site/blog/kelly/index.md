@@ -2,13 +2,13 @@
 layout: author
 author: Kelly Johnson
 tagline: The Brains
+
+image: "https://live.staticflickr.com/65535/52298344619_f7a489d39f_b.jpg"
+imageAlt: "Kelly’s Bike: Surly Disc Trucker" 
+
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in pharetra eros. Morbi maximus
-porta velit et pretium. Quisque sit amet arcu maximus, blandit neque eleifend, eleifend lectus.
-Nunc metus neque, congue eget odio vitae, fermentum tincidunt tellus. Pellentesque blandit quam
-ut quam mattis, eget tristique diam hendrerit. Proin faucibus, sapien et auctor elementum, ante
-sapien lacinia erat, a luctus ante risus eu massa. Integer lacinia tincidunt nisi nec blandit.
-Etiam finibus facilisis metus at ullamcorper. Nunc augue leo, rutrum non neque in, ultricies
-blandit ipsum. Proin a aliquam elit. Curabitur nec efficitur dui, facilisis elementum risus.
-Sed et eleifend nibh, vel suscipit odio. Nullam condimentum at felis sed fringilla.
+
+I’m starting the Bike Across America adventure as a way to reacquaint myself with life in the States after having lived in Paris, France for the last three years (2019-2022).  While in France, I had the opportunity to do several multi-day bike tours in the French countryside, the Netherlands, and the UK.  I’m looking forward to exploring my homeland in a similar way, visiting states I’ve never been to before and embracing the adventure of each day.
+
+I became seriously interested in cycling largely as a result of the COVID pandemic.  While in Paris, I spent three months stuck in the apartment teleworking with limited freedom to go outside.  When it was time to start going back into the office, I chose to bike to work to avoid being squished with folks in the metro.  As I got used to my daily commute, I invested in a Brompton (folding bike) to make it easier to get my bike in and out of my apartment building’s tiny elevator.  Little did I know that this purchase would change my life.  I absolutely loved this bike!  I got one for my husband as a surprise Christmas present, and we embarked on a series of amazing trips across France and Europe.  The Bromptons’ foldability made it so easy to throw them in the car or train luggage area, opening up so many new possibilities for bike adventuring.  Our first multi-day tour was along the Rhône River in Southern France where we biked over 160 miles in three days from Tain-l’Heritage to Arles.  It was on this trip that I realized bike touring would become a major part not only of the way I travel, but how I would live life.  Even though I’ll be biking across America on a Surly Disc Trucker, it’s my Brompton that is responsible for getting me ready for this adventure.
