@@ -19,7 +19,7 @@ title:  Biking Across America
   {% assign dayOfYear = "today" | date: "%j" %}
   {% assign startDay  = site.nominal_start_date | date: "%j" %}
 
-  {% if dayOfYear > startDay %}
+  {% if dayOfYear < startDay %}
     <div class="d-flex justify-content-center align-items-center">
       <div>
         <p class="lead text-center">The adventure begins in</p>
