@@ -12,23 +12,45 @@ title:  Biking Across America
     onclick="document.querySelectorAll('.fade').forEach(item => item.classList.toggle('show'))"
 >Zen</button>
 
-<div class="container text-center fade show">
-  <h1 class="display-1">Biking Across America</h1>
-  <p class="lead">{{ site.description }}</p>
+<div class="container fade show">
+  <h1 class="display-1 text-center">Biking Across America</h1>
+  <p class="lead text-center">{{ site.description }}</p>
 
   {% assign dayOfYear = "today" | date: "%j" %}
   {% assign startDay  = site.nominal_start_date | date: "%j" %}
 
-  {% if dayOfYear < startDay %}
+  {% if dayOfYear > startDay %}
     <div class="d-flex justify-content-center align-items-center">
       <div>
         <p class="lead text-center">The adventure begins in</p>
         <div id="countdown" class="d-flex text-center font-monospace"></div>
       </div>
     </div>
-  {% else %}
-    {% include quick-stats.html %}
   {% endif %}
+
+  <hr />
+
+  <div class="row mt-4">
+    <div class="col-6 col-md-3 offset-md-3 text-end">
+      <a href="https://www.rescue.org/" target="_blank" rel="noopener">
+        <img
+            class="img-fluid shadow"
+            src="/assets/images/irc-logo.png"
+            alt="The International Rescue Committee"
+        />
+      </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <a href="https://donate.tiltify.com/@juliemkauffman/bike-across-america" target="_blank" rel="noopener">
+        <img
+            class="img-fluid shadow"
+            src="/assets/images/campaign-donate-qr.png"
+            alt="QR code to donate to The International Rescue Committee on Tiltify"
+        />
+      </a>
+    </div>
+  </div>
 </div>
 
 <div id="side-scroller"></div>
@@ -43,7 +65,12 @@ title:  Biking Across America
     ['lib/countdown', 'lib/side-scroller'],
     function ({ default: Countdown }, { default: SideScroller}) {
       {% if dayOfYear < startDay %}
-        new Countdown('{{ site.nominal_start_date }}', '#countdown');
+        try {
+          new Countdown('{{ site.nominal_start_date }}', '#countdown');
+        }
+        catch (e) {
+          /* noop */
+        }
       {% endif %}
 
       new SideScroller();
