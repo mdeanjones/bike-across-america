@@ -3,9 +3,25 @@ layout: author
 author: Kelly Johnson
 tagline: The Brains
 
-image: "https://live.staticflickr.com/65535/52298344619_f7a489d39f_b.jpg"
-imageAlt: "Kelly’s Bike: Surly Disc Trucker" 
-
+images:
+    - 
+        image: "https://live.staticflickr.com/65535/52298344619_f7a489d39f_b.jpg"
+        imageAlt: "Kelly’s Bike: Surly Disc Trucker"
+    -
+        image: "https://live.staticflickr.com/65535/52316175692_e0ef39e1a9_o.jpg"
+        imageAlt: "Kelly's European Brompton Adventure"
+    -
+        image: "https://live.staticflickr.com/65535/52316175457_1cb5271f23_o.jpg"
+        imageAlt: "Kelly's European Brompton Adventure"
+    - 
+        image: "https://live.staticflickr.com/65535/52316174562_ba76e62598_o.jpg"
+        imageAlt: "Kelly's European Brompton Adventure"
+    -
+        image: "https://live.staticflickr.com/65535/52317393739_b02f25006a_o.jpg"
+        imageAlt: "Kelly's European Brompton Adventure"
+    -
+        image: "https://live.staticflickr.com/65535/52316169287_4089465b27_o.jpg"
+        imageAlt: "Kelly's European Brompton Adventure"
 ---
 
 
