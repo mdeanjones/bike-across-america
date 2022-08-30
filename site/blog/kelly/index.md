@@ -9,19 +9,19 @@ images:
         imageAlt: "Kelly’s Bike: Surly Disc Trucker"
     -
         image: "https://live.staticflickr.com/65535/52316175692_e0ef39e1a9_o.jpg"
-        imageAlt: "Kelly's European Brompton Adventure"
+        imageAlt: "En route from Paris to Chartes"
     -
         image: "https://live.staticflickr.com/65535/52316175457_1cb5271f23_o.jpg"
-        imageAlt: "Kelly's European Brompton Adventure"
+        imageAlt: "Bike ride from Pauillac to Saint-Emilion"
     - 
         image: "https://live.staticflickr.com/65535/52316174562_ba76e62598_o.jpg"
-        imageAlt: "Kelly's European Brompton Adventure"
+        imageAlt: "Bike ride around Lake Annecy"
     -
         image: "https://live.staticflickr.com/65535/52317393739_b02f25006a_o.jpg"
-        imageAlt: "Kelly's European Brompton Adventure"
+        imageAlt: "Cotswolds biking in Bourton-on-the-Water"
     -
         image: "https://live.staticflickr.com/65535/52316169287_4089465b27_o.jpg"
-        imageAlt: "Kelly's European Brompton Adventure"
+        imageAlt: "Stop at the Pont du Gard during our multi-day Rhône River bike tour"
 ---
 
 
