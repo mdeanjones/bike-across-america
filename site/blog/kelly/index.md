@@ -30,4 +30,4 @@ images:
 
     - 
         image: "https://live.staticflickr.com/65535/52298344619_f7a489d39f_b.jpg"
-        imageAlt: "Kelly’s Bike: Surly Disc Trucker"
+        imageAlt: "My Surly Disc Trucker during a tour in the Loire"
