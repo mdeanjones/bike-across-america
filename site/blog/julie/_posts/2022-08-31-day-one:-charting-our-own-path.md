@@ -21,10 +21,13 @@ At around 2pm today we thought we would make it to our destination in Vallejo by
 - Biking up San Pablo Avenue between Rodeo and the Alfred Zampa Memorial Bridge. These few miles alone made the ferry seem like a very good idea. I think each of us thought to ourselves: _Can I make it up this hill? I'm not so sure I can make it up this hill. But also - not making it up this hill doesn't seem like an option. So. I guess I just gotta make it up this hill then._
 
 #### Julie's food (for the curious - specifically her mother, Maryanne)
-- breakfast: bread with almond butter
-- first snack: half of a granola bar and some cashews
-- second snack: almond butter and banana sandwhich
-- lunch: sandwhich from Whole Foods (tempeh, tomato, lettuce, and avocado)
-- dinner: frozen pad thai from a grocery store + beer 
+- Breakfast: bread with almond butter
+- First snack: half of a granola bar and some cashews
+- Second snack: almond butter and banana sandwich
+- Lunch: sandwich from Whole Foods (tempeh, tomato, lettuce, and avocado)
+- Dinner: frozen pad thai from a grocery store + beer 
 
-
+#### Stats
+- Total distance: 48.74 miles 
+- Elevation gain: 2345 feet
+- Weather: hot and dry, high of 94
