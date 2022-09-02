@@ -4,7 +4,7 @@ const path       = require('path');
 const { Client } = require("@googlemaps/google-maps-services-js");
 
 (async function() {
-  const [lat, lng, accuracy, altitude] = process.argv.slice(2);
+  const [lat, lng, accuracy] = process.argv.slice(2);
 
   if (!(lat && lng)) {
     throw new Error('latitude and longitude are required');
@@ -19,11 +19,32 @@ const { Client } = require("@googlemaps/google-maps-services-js");
     lat:   parseFloat(lat),
     lng:   parseFloat(lng),
     acc:   accuracy ? parseFloat(accuracy) : null,
-    alt:   altitude ? parseFloat(altitude) : null,
+    alt:   null,
     dist:  null,
     speed: null,
     time:  Date.now(),
   };
+
+  try {
+    const config = {
+      params: {
+        locations: [`${newCheckin.lat},${newCheckin.lng}`],
+        key: process.env.API_KEY,
+      }
+    }
+
+    const client = new Client();
+    const result = await client.elevation(config);
+
+    newCheckin.alt = result.data.results[0].elevation;
+  }
+  catch (e) {
+    console.error(`An Altitude Lookup Error Occurred: ${ e.code } - ${ e.message }`);
+  }
+
+  console.log(newCheckin);
+
+  return;
 
   try {
     const config = {

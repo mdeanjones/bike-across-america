@@ -53,9 +53,21 @@ export function formatDate(unix: number) {
 }
 
 
+export const FEET_PER_METER = 3.281;
+
+export const METER_PER_MILE = 0.000621371;
+
+
+export function convertMetersToFeet(value: unknown, defaultValue: string) {
+  return typeof value === 'number'
+    ? `${ toFixedPrecision(value / FEET_PER_METER, 0, '') } ft`
+    : defaultValue;
+}
+
+
 export function convertMetersToMiles(value: unknown, defaultValue: string) {
   return typeof value === 'number'
-    ? `${ toFixedPrecision(value * 0.000621371, 2, '') } mi`
+    ? `${ toFixedPrecision(value * METER_PER_MILE, 2, '') } mi`
     : defaultValue;
 }
 
