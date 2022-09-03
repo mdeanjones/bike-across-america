@@ -42,10 +42,6 @@ const { Client } = require("@googlemaps/google-maps-services-js");
     console.error(`An Altitude Lookup Error Occurred: ${ e.code } - ${ e.message }`);
   }
 
-  console.log(newCheckin);
-
-  return;
-
   try {
     const config = {
       params: {
