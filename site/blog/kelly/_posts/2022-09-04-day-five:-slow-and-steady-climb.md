@@ -1,0 +1,5 @@
+This morning we left Plymouth to start our very steep climb up to South Lake Tahoe.  It's a slow grind up, but so far the grade is manageable.  Unfortunately, we could only climb 15 miles today because all the cabins/Airbnbs/hotels/campgrounds further up the road were totally booked for the holiday weekend.  We'll run into the same issue tomorrow, so we will only be able to climb up another 20 miles that day.  I certainly don't hate taking it slow up the mountain, but I do worry about making time up down the road.  Don't want to fall into a mileage debt too early.  I'm just trying to remind myself we're in the most challenging portion of the whole journey; if we're going to go slow anywhere it would be here.
+
+The bright spot of the day was biking through California's Shenandoah Valley viticultural area.  It was absolutely gorgeous to see the foothills of the Sierra Nevada mountains sprinkled with vineyards.  It definitely put me in the mind of some of the biking Jordan and I have done in French wine country.
+
+One update.  I've decided to name my bike Myrtle the Turtle.  She's lumbering with her big green bags, but I'm hoping slow and steady wins the race.
