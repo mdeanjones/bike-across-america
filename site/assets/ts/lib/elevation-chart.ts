@@ -12,7 +12,7 @@ function buildInfoWindowContent(pin: typeof window.locationPins[0]) {
         <tbody>
           <tr>
             <th scope="row">Elevation</th>
-            <td>${ formatter.format((pin.alt ?? 0) / FEET_PER_METER) }</td>
+            <td>${ formatter.format((pin.alt ?? 0) * FEET_PER_METER) }</td>
           </tr>
         </tbody>
       </table>
@@ -34,7 +34,7 @@ export default function setupChart() {
       cumulativeDistance += pin.dist ?? 0;
       dataTable.addRow([
         cumulativeDistance * METER_PER_MILE,
-        (pin.alt ?? 0) / FEET_PER_METER,
+        (pin.alt ?? 0) * FEET_PER_METER,
         buildInfoWindowContent(pin),
       ]);
     }

@@ -60,7 +60,7 @@ export const METER_PER_MILE = 0.000621371;
 
 export function convertMetersToFeet(value: unknown, defaultValue: string) {
   return typeof value === 'number'
-    ? `${ toFixedPrecision(value / FEET_PER_METER, 0, '') } ft`
+    ? `${ toFixedPrecision(value * FEET_PER_METER, 0, '') } ft`
     : defaultValue;
 }
 
