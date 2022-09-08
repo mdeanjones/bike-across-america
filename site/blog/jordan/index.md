@@ -36,4 +36,6 @@ Jordan's Bike Build:
 
 -Schwalbe Marathon Plus Tour tires
 
+-Ortleib Rollertop panniers 
+
 
