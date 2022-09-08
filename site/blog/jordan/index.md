@@ -16,6 +16,8 @@ Jordan's Bike Build:
 
 -Surly Moloko handlebars with Brooks bar tape
 
+-Ergon GP3 grips
+
 -Brooks B17 Saddle
 
 -SKS fenders 
@@ -25,6 +27,10 @@ Jordan's Bike Build:
 -Newton flat pedals
 
 -Avid breaks 
+
+-Hope hubs
+
+-DT Swiss wheels
 
 -Transmission: SRAM X5 3x10, SRAM X5, Shimano Deore triple M6000, SRAM 10v, SRAM 11-36
 
