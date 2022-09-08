@@ -22,7 +22,7 @@ Jordan's Bike Build:
 
 -Tubus racks
 
--MKS pedals
+-Newton flat pedals
 
 -Avid breaks 
 
