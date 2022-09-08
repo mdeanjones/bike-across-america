@@ -6,7 +6,7 @@ tagline: The Muscle
 images:
    
     -
-        image: "https://flic.kr/p/2nJTwQM"
+        image: "https://www.flickr.com/photos/196316248@N03/52337531965"
         imageAlt: "These muscles getting me up the Sierras!"
 ---
 
