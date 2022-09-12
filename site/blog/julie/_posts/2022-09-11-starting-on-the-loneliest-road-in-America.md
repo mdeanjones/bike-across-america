@@ -5,7 +5,7 @@ imageAlt: "Middlegate Station"
 
 Today we left Fallon, Nevada on Route 50 heading West, nicknamed "the Loneliest Road in America". We’re properly in the desert now and the landscape is surreal. There doesn’t seem to be a whole lot out here, except for (inexplicably) the U.S. Navy. We passed a _lot_ of signs for various Navy bases and facilities. But. It’s a land-locked desert. So. 
 
-__There are no points of interest. We don’t recommend it. We warn all motorists not to drive there unless they’re confident of their survival skills.__ -- Life Magazine, 1986, on Route 50 in Nevada
+__"There are no points of interest. We don’t recommend it. We warn all motorists not to drive there unless they’re confident of their survival skills."__ -- Life Magazine, 1986, on Route 50 in Nevada
 
 We biked 50 miles and stopped at the only place in a 110 mile stretch of Route 50 - Middlegate Station. 
 
