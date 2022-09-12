@@ -1,5 +1,5 @@
 ---
-image: "https://live.staticflickr.com/65535/52351054633_9d3dd01f1d_o.jpg”
+image: "https://live.staticflickr.com/65535/52351054633_9d3dd01f1d_o.jpg"
 imageAlt: "Middlegate Station"
 ---
 
