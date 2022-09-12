@@ -3,13 +3,14 @@ image: "https://live.staticflickr.com/65535/52351054633_9d3dd01f1d_o.jpg”
 imageAlt: "Middlegate Station"
 ---
 
-> There are no points of interest. We don’t recommend it. We warn all motorists not to drive there unless they’re confident of their survival skills.
->
-> -- <cite>Life Magazine, 1986, on Route 50 in Nevada</cite>
-
 Today we left Fallon, Nevada on Route 50 heading West, nicknamed "the Loneliest Road in America". We’re properly in the desert now and the landscape is surreal. There doesn’t seem to be a whole lot out here, except for (inexplicably) the U.S. Navy. We passed a _lot_ of signs for various Navy bases and facilities. But. It’s a land-locked desert. So. 
+
+__There are no points of interest. We don’t recommend it. We warn all motorists not to drive there unless they’re confident of their survival skills.__ -- Life Magazine, 1986, on Route 50 in Nevada
+
 We biked 50 miles and stopped at the only place in a 110 mile stretch of Route 50 - Middlegate Station. 
+
 Much like Ham’s Station, where we spent the night while climbing the Sierra Nevada, Middlegate Station is a restaurant with limited lodging that also allows camping. We’re camping in our camper tent in the back. We were pleasantly surprised to find they also have (cold) showers available!
+
 Historically, Middlegate Station was a station on the Pony Express. 
 
 #### Highlights
