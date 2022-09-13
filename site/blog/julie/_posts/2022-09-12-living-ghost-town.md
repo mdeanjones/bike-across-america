@@ -26,7 +26,7 @@ Tonight we’re camping in our van in the parking lot of a church. We each had a
 - Second Snack: peanut butter banana sandwich
 - Third snack: power bar
 - Fourth snack: hummus and bread
-- Dinner: campstove cousine - veggie stew with carrots, mushroom, onion, cous cous, and TVP 
+- Dinner: campstove cuisine - veggie stew with carrots, mushroom, onion, cous cous, and TVP 
 
 #### Stats
 - Total distance: 63.96 miles
