@@ -9,7 +9,7 @@ Upon entering Austin I saw a sign that boasted they’ve been social distancing 
 
 The ride was beautiful and overall pretty easy. Distances are deceptive here. I’ll see something in this distance but then it will take like 10 miles before I actually get there. 
 
-During a snack stop, Mike and I saw some fighter jets fly by. It was pretty neat. I guess that’s what the Navy is doing out here. Flying.
+During a snack stop, Mike and I saw some fighter jets fly by. It was pretty neat. I guess that’s what the Navy is doing out here. Flying. We looked up the air base in Fallen and apparently that's where the United States Navy Strike Fighter Tactics Instructor program is located, more popularly known as TOPGUN.
 
 Tonight we’re camping in our van in the parking lot of a church. We each had a warm shower and did laundry in the sink. Our clean clothes are now strung up throughout the van and hanging off bicycles, panniers, and across a line hung between two trees. I washed _all_ of my clothes so I’m wearing Mike’s clothes now. _Really_ hoping something of mine is dry tomorrow morning. 
 
