@@ -31,4 +31,4 @@ Tonight we’re camping in our van in the parking lot of a church. We each had a
 #### Stats
 - Total distance: 63.96 miles
 - Elevation gain: 3,570 feet
-- Weather: hot and dry, high of 76 degrees Fahrenheit
+- Weather: high of 76 degrees Fahrenheit, afternoon storms
