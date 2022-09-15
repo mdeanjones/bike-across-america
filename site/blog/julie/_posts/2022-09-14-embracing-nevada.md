@@ -11,7 +11,7 @@ Our ride had two smaller climbs and then two longer climbs, and then we _should 
 
 Cycling through downtown Ely on the main street (route 50) was nice. It felt very old-timey. If it weren’t for all the strip bars, casinos, and 24/7 massage parlors, it would have felt downright wholesome. 
 
-Once we checked in to the AirBnB, Mike and I walked to a local sports store to buy more tube and waterproof cycling gloves. The sports store was _heavily_ geared towards hunting. They sold LOTS of guns and camo. I _almost_ had to buy camo cycling gloves. The deer would never see me coming! They also sold a t-shirt that said “vegetarians, my food poops on your food”. It’s funny, because eating plants is silly. 
+Once we checked in to the AirBnB, Mike and I walked to a local sports store to buy more tubes and waterproof cycling gloves. The sports store was _heavily_ geared towards hunting. They sold LOTS of guns and camo. I _almost_ had to buy camo cycling gloves. The deer would never see me coming! They also sold a t-shirt that said “vegetarians, my food poops on your food”. It’s funny, because eating plants is silly. 
 
 We went to dinner at a Mexican restaurant in a casino. Then we played a few games in the casino. We bet $10 and left with $40, so not too bad!
 
