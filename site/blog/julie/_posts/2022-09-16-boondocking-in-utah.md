@@ -1,5 +1,5 @@
 ---
-title: “Boondocking in Utah”
+title: Boondocking in Utah
 image: "https://live.staticflickr.com/65535/52362006847_7efe681a9d_o.jpg"
 imageAlt: "Making dinner at our impromptu campsite"
 ---
@@ -22,7 +22,7 @@ Julie: No! We haven’t considered that at all!
 
 The tl;dr of the rest of that conversation is that she believed we would be able to do it and also she was too busy to drive along with us on short notice. 
 
-Today we had 84 miles to go between services, with roughly 4,000 feet of climbing. We weren't sure if we would be able to go the full distance so we didn’t make reservations at the next town, Milford. Even though it is MUCH easier without having to carry all of our gear (thanks, Mike!), I’m feeling very accomplished. This is one of the stretches that I saw on the map last week which had my panic calling my mom. 
+Today we had 84 miles to go between services, with roughly 4,000 feet of climbing. We weren't sure if we would be able to go the full distance so we didn’t make reservations at the next town, Milford. Even though it is MUCH easier without having to carry all of our gear (thanks, Mike!), I’m feeling very accomplished. This is one of the stretches that I saw on the map last week which had me panic calling my mom. 
 
 We had one small climb and two bigger climbs today. The two big climbs were 6-7 miles long and roughly 1,500 feet of elevation gain. We regrouped after the first long climb and decided we all felt good enough to make it all the way to Milford. At that point, Mike tried to make hotel reservations and everything was booked. The campground in Milford is permanently closed as well. 
 
@@ -32,7 +32,7 @@ We were on Route 21 all day. It was even less trafficked than Route 50. I counte
 
 We’ll start tomorrow with a nice 15 mile descent into Milford, and then will carry on to Carson City, where we will be very happy to shower. 
 
-With such a long ride followed by boondocking over night, I had to pee outside for the first time and then multiple times thereafter. Mike came with me each time to watch my six. He’s a lovely man. It was a very strange experience for all involved. 
+With such a long ride followed by boondocking overnight, I had to pee outside for the first time and then multiple times thereafter. Mike came with me each time to watch my six. He’s a lovely man. It was a very strange experience for all involved. 
 
 
 #### Highlights
@@ -50,7 +50,7 @@ With such a long ride followed by boondocking over night, I had to pee outside f
 - Second snack: hummus and crackers
 - Third snack: protein bar
 - Lunch: peanut butter banana sandwich, hummus and crackers, mint chocolate cookies
-- Fourth Snack: apple, chips and quad, pretzels, sriracha rice cakes
+- Fourth Snack: apple, chips and guac, pretzels, sriracha rice cakes
 - Dinner: couscous and lentils (camp-stove cuisine)
 
 #### Stats
