@@ -4,7 +4,9 @@ image: "https://live.staticflickr.com/65535/52365553788_ae0e6a33b3_o.jpg"
 imageAlt: "Mike and Julie excited to start a new day, before they knew about the headwinds waiting for them"
 ---
 We made it to Cedar City, Utah today. We battled intense headwinds the whole way. The last 32 miles were really a struggle. It was a real bummer because today was supposed to be a nice, easy ride with just one gradual climb and mostly downhill otherwise. 
+
 I spent the whole ride trying to pump myself up by thinking “at least it’s not raining” and “at least it’s not cold” and “it could be cold _and_ raining _and_ with this headwind.” It didn’t really help much. 
+
 We have not yet decided what we are going to do tomorrow. We have a ~5,500 foot climb next and the headwinds are supposed to be even worse tomorrow, and bad all week. Maybe we’ll take a day off? And battle the climb/headwinds on fresher legs? 
 
 #### Highlights
