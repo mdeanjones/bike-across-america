@@ -9,8 +9,8 @@ I’ve ridden my bicycle in a lot of places, and I can now say with confidence t
 But drivers in Utah are worse. Just - shockingly inconsiderate, reckless, selfish, and rude. And this assessment is not based on one or two isolated incidents. Drivers in Utah, across the board, are simply unwilling to deviate from their preferred path even if it would cost them nothing (no car behind them, no car in the oncoming lane, they are consistently completely unwilling to swerve even a little to give a cyclist the legally required amount of clearance). 
 
 At one point today I was on a narrow mountain road with no shoulder. There were 7 cars that came upon me at once. The first four (probably out of towners) gave me space but then an oncoming car rounded the corner so the next car could either: 
- A. Slow down for half a second until the oncoming car passed and then give me a wide berth
- B. Not slow down and run me over. 
+ - A. Slow down for half a second until the oncoming car passed and then give me a wide berth
+ - B. Not slow down and run me over. 
 
 This car obviously chose B. They did not slow down and honked at me insistently in a way that clearly conveyed _get out of my way or I will literally kill you._ I launched myself and my bicycle at the guard rail to get out of his way, and the two cars that followed him sped by. Because that all was normal. 
 
@@ -24,7 +24,7 @@ Unfortunately I now have to update my list.
 
 __States with people who are nice__
  - Wisconsin
- - ~Utah~
+ - ~~Utah~~
 
 I have interacted with two exceptionally friendly people in Utah so far. The first person was from Arizona, and the second one ultimately tried to get me to sign up for a pyramid scheme. So. 
 
