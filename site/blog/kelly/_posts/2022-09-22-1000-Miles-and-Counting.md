@@ -10,7 +10,7 @@ Some quick observations on what I would do differently knowing what I know now:
 
 -Pack lighter.  I've sent home several boxes of stuff I don't need and don't want to carry.
 
--Be more in tune with the weather.  We've biked in 100 degrees and the cold and wet.  On those extreme days, it's better to make it a really short ride or not bike at all.  We at times have allowed our fear of not finishing in time to push us into riding in pretty unfavorable circumstances.
+-Be more in tune with the weather.  We've biked in 100 degree temperatures and in the cold and wet.  On those extreme days, it's better to make it a really short ride or not bike at all.  We at times have allowed our fear of not finishing in time to push us into riding in pretty unfavorable circumstances.
 
 -Plan on organizing a support car from the get go.  We got lucky that Mike took one for the team and opted to be our support driver after crossing the Sierra Nevada Mountains.  If he had not, I don't think we would have been able to cross Nevada and Utah as successfully, if at all.
 
