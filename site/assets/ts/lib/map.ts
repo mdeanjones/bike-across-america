@@ -112,7 +112,7 @@ function initMap() {
       info.open({ map, anchor: marker });
     });
 
-    setTimeout(() => nextMarker(pins, distance + (pin.dist ?? 0)), 350);
+    setTimeout(() => nextMarker(pins, distance + (pin.dist ?? 0)), 100);
   }
 
   nextMarker(pins.slice(), 0);
