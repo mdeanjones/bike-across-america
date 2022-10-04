@@ -1,7 +1,7 @@
 ---
 title: Mike Jones Appreciation Post
 image: "https://live.staticflickr.com/65535/52381886033_044cf067a2_o.jpg"
-imageAlt: "Julie and Mike unafraid of the looming 120 miles without services because of Mike and his support vehicle"p my
+imageAlt: "Julie and Mike unafraid of the looming 120 miles without services because of Mike and his support vehicle"
 ---
 
 Today we took the day off from riding to return the van (which Mike named Mama Chungus) to Denver. Tomorrow we start the next chapter of this adventure, once again without a support vehicle. This seems like the perfect opportunity to highlight how critical the support vehicle was (and how wonderful Mike is for volunteering to drive it for us). 
