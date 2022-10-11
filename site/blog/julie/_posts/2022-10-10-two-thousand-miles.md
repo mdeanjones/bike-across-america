@@ -14,7 +14,7 @@ We’re in Newton tonight. This is a proper city. It has _multiple_ large grocer
  
 
 #### Highlights
-- I saw something that looked like a tiny cyclone. The wind was blowing in a cyclone shape and had picked up a lot of debris and was moving across a field towards the road in front of me. I stopped to let it go passed. Didn’t look dangerous and it was cool to see. 
+- I saw something that looked like a tiny cyclone. The wind was blowing in a cyclone shape and had picked up a lot of debris and was moving across a field towards the road in front of me. I stopped to let pass ahead of me. Didn’t look dangerous and it was cool to see. 
 - We passed a cotton field today. It’s the first one we’ve seen. We’ve seen a lot of corn fields and a lot of fields which (we learned yesterday) contain sorghum. There are also many fields growing crops that we collectively cannot identify.
 - Entering Newton there was a Transamerica bicycle route sign and a message welcoming cyclists. It’s the first we’ve seen! 
 
