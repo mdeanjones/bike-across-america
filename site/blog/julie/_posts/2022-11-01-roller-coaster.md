@@ -4,7 +4,7 @@ image: "https://live.staticflickr.com/65535/52471683193_c3ef492c9e_o.jpg"
 imageAlt: "Mike practicing his fake smile after a grueling climb in eastern Kentucky"
 ---
 
-This section of the TransAm through Appalachia is described as a “self-propelled” rollercoaster. It’s just up-down-up-down-up-down all day. The gradients are much steeper than out west too. It’s been much more challenging climbing than in the Rockies.
+This section of the TransAm through Appalachia is described as a “self-propelled rollercoaster". It’s just up-down-up-down-up-down all day. The gradients are much steeper than out west too. It’s been much more challenging climbing than in the Rockies.
 
 When we looked at the elevation profile for today before we set out, I declared we had three notable climbs followed by a “little baby climb.” _WELL_ by the time we got to the little baby climb, my legs were dead. No more leg muscles. Couldn’t do it. I had to walk part of the baby climb. I _also_ walked part of the third climb too. You win this round, Kentucky.
 
