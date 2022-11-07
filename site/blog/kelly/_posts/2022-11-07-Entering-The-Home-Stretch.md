@@ -2,5 +2,5 @@ As of this morning, we have 310 miles to go!  It is so surreal to be in the fina
 
 The plan for today is to bike from Troutville to Vesuvius, a small town at the base of the Blue Ridge Parkway.  This will set us up for the final climb of the trip.  We'll go up and over the mountains to finish the day in Charlottesville.  After that, the route is pretty much all downhill to the coast.
 
-As for the weather, the last few days has been a bit of a challenge.  It has rained quite a bit and the mornings have been pretty foggy.  We've also been contending with the time change which has forced us to get earlier starts to maximize the daylight. Virginia is forecasted to get hit next week with rain from the topical system brewing off of Florida- very glad we should be done by then!
+As for the weather, the last few days have been a bit of a challenge.  It has rained quite a bit and the mornings have been pretty foggy.  We've also been contending with the time change which has forced us to get earlier starts to maximize the daylight. Virginia is forecasted to get hit next week with rain from the topical system brewing off of Florida- very glad we should be done by then!
 
