@@ -44,7 +44,7 @@ Illinois:
 
 -Best memory: Sharing a beautiful bottle of wine with Jordan at Grafted Wine Bar in Belleville to celebrate my birthday. 
 
--Biggest challenge: Battling strong headwinds over the course of all three days we spent in the state.  It was also very sad and nerve wrecking to bike through East Saint Louis.
+-Biggest challenge: Battling strong headwinds over the course of all three days we spent in the state.  It was also very sad and nerve wracking to bike through East Saint Louis.
 
 Kentucky:
 
