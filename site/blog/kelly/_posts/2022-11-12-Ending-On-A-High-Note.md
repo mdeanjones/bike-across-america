@@ -24,13 +24,13 @@ Utah:
 
 Colorado:
 
--Best memory: Visiting the clothing optional hot spring in Ridgeway.
+-Best memory: Visiting the clothing optional hot spring in Ridgeway.  Also, visiting the saloon in Ordway.  It was the classic movie experience- we walked in, the piano music stopped and everyone starred.  We were clearly the outsiders.  However, we received the biggest compliment of the trip when the barkeep told us we weren't weird like the other cyclists who had previously passed through.
 
 -Biggest challenge: Descending down the mountain from Telluride.  There was almost no shoulder on this steep descent.  We were basically biking on the white line as cars wizzed by just inches away.
 
 Kansas:
 
--Best memory: Visiting the saloon in Ordway.  It was the classic movie experience- we walked in, the piano music stopped and everyone starred.  We were clearly the outsiders.  However, we received the biggest compliment of the trip when the barkeep told us we weren't weird like the other cyclists who had previously passed through.
+-Best memory: Biking a century (100 miles in a day).  We took advantage of the long, flat roads to really lay down some miles.
 
 -Biggest challenge: Dealing with strong headwinds and biking past cattle feeding lots (thousands of cows shoved into a small area which created a very sad scene and a terrible smell).  I was also super close when a car slammed into the back of a tractor trailer- scared me so much I almost quit.
 
@@ -54,7 +54,7 @@ Kentucky:
 
 Virginia:
 
--Best memory: Crossing the border from Kentucky into Virginia.  I was so relieved to be out of Eastern Kentucky I felt almost euphoric entering Virginia.  A close second was the lovely ride from Richmond to Williamsburg along the capital bike trail.
+-Best memory: Crossing the border from Kentucky into Virginia.  I was so relieved to be out of Eastern Kentucky I felt almost euphoric entering Virginia.  A close second was the lovely ride from Richmond to Williamsburg along the capital bike trail.  As we were leaving a trail side cafe packed with cyclists, everyone sitting on the patio clapped and cheered for us as we made our way toward the finish line.
 
 -Biggest challenge: Dealing with the horrible smell of all the dead deer.  So much roadkill, it's terrible!  It was also a shame that so much of the Virginia route was on busy roads with no shoulders.
 
