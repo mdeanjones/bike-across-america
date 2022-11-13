@@ -32,7 +32,7 @@ Kansas:
 
 -Best memory: Visiting the saloon in Ordway.  It was the classic movie experience- we walked in, the piano music stopped and everyone starred.  We were clearly the outsiders.  However, we received the biggest compliment of the trip when the barkeep told us we weren't weird like the other cyclists who had previously passed through.
 
--Biggest challenge: Dealing with strong headwinds and biking past cattle feeding lots (thousands of cows shoved into a small area which created a very sad scene and a terrible smell).  
+-Biggest challenge: Dealing with strong headwinds and biking past cattle feeding lots (thousands of cows shoved into a small area which created a very sad scene and a terrible smell).  I was also super close when a car slammed into the back of a tractor trailer- scared me so much I almost quit.
 
 Missouri:
 
@@ -48,7 +48,7 @@ Illinois:
 
 Kentucky:
 
--Best memory: Visiting Maker's Mark Distillery.  Meeting the very lovely and kind Randy from Hindman who helped us find lodging for a night.
+-Best memory: Visiting Maker's Mark Distillery and meeting the very lovely and kind Randy from Hindman who helped us find lodging for a night.
 
 -Biggest challenge: Being attacked multiple times a day by very aggressive dogs.  One dog attack caused me to crash, resulting in a lot of scrapes and bruises.  Jordan was also almost hit by a car (so close it left a mark on his jacket).
 
