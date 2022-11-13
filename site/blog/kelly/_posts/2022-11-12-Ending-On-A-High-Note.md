@@ -24,7 +24,7 @@ Utah:
 
 Colorado:
 
--Best memory: Visiting the clothing optional hot spring in Ridgeway.  Also, visiting the saloon in Ordway.  It was the classic movie experience- we walked in, the piano music stopped and everyone starred.  We were clearly the outsiders.  However, we received the biggest compliment of the trip when the barkeep told us we weren't weird like the other cyclists who had previously passed through.
+-Best memory: Visiting the clothing optional hot spring in Ridgeway.  Also, visiting the saloon in Ordway.  It was the classic movie experience- we walked in, the piano music stopped and everyone stared.  We were clearly the outsiders.  However, we received the biggest compliment of the trip when the barkeep told us we weren't weird like the other cyclists who had previously passed through.
 
 -Biggest challenge: Descending down the mountain from Telluride.  There was almost no shoulder on this steep descent.  We were basically biking on the white line as cars wizzed by just inches away.
 
