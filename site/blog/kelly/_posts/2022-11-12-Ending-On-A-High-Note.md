@@ -18,7 +18,7 @@ Nevada:
 
 Utah:
 
--Best memory: Biking through Capitol Reef National Park.  The rock formations were out of this world.  Jordan and I plan to go back to this area to spend a few days hiking and exploring the area.
+-Best memory: Biking through Capitol Reef National Park.  The rock formations were out of this world.  Jordan and I plan to go back to this area to spend a few days hiking and exploring.
 
 -Biggest challenge: Surviving the foggy death climb.  On our way into Torrey, Utah (the town right outside Capitol Reef), we had to cross a high elevation mountain (+9,000 feet) on a terribly foggy day.  We could barely see in front of us- meaning cars could barely see us.  It was both super anxiety-inducing as well as physically challenging to get up and over that mountain.
 
