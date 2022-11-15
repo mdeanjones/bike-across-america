@@ -2,8 +2,8 @@ name: Image Aggregator
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '45 11,16,22 * * *'
+#  schedule:
+#    - cron: '45 11,16,22 * * *'
 
 jobs:
   build:
