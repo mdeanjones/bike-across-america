@@ -11,7 +11,14 @@
     <div class="card h-100 text-white bg-dark">
       <div class="card-body">
         <div class="d-flex align-items-center">
-          <h5 class="display-5 mb-0 me-3">{{ dayOfYear | minus: startDay }}</h5>
+          <h5 class="display-5 mb-0 me-3">75</h5>
+
+          {% comment %}
+            {% raw %}
+              <h5 class="display-5 mb-0 me-3">{{ dayOfYear | minus: startDay }}</h5>
+            {% endraw %}
+          {% endcomment %}
+
           <p class="lead mb-0">Days on the road</p>
         </div>
       </div>
